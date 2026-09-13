@@ -188,14 +188,14 @@ section{ padding:64px 0; }
    parent, so it only appears right at the moment the lid is closed. */
 .brand-mark-wrap{ position:relative; display:inline-block; line-height:0; }
 .wink-lid{
-  position:absolute; left:30%; top:25%; width:19%; height:19%;
-  background:#f7dda6; border-radius:50%;
+  position:absolute; left:29%; top:28%; width:24%; height:22%;
+  background:radial-gradient(ellipse at center, #f5d08c 50%, #f5d08c 66%, rgba(245,208,140,0) 100%);
   transform:scaleY(0); transform-origin:center;
   animation:puff-wink 3s ease-in-out infinite;
   pointer-events:none;
 }
 .wink-lid::after{
-  content:""; position:absolute; left:8%; right:8%; top:50%; height:12%;
+  content:""; position:absolute; left:12%; right:12%; top:52%; height:11%;
   transform:translateY(-50%); background:#2a140a; border-radius:999px;
 }
 @keyframes puff-wink{
