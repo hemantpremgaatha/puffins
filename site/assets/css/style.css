@@ -1250,7 +1250,12 @@ body{ animation:page-fade-in .5s ease both; }
   animation:float-y 5s ease-in-out infinite;
 }
 .crunch-poster{
-  width:100%; max-width:760px; margin:0 auto; display:block;
+  /* height:auto for the same reason as .hero-media img — without it, the
+     width/height attributes' presentational height wins outright and the
+     landscape (3:2) source renders squashed into whatever box height was
+     previously tuned for the old square video. max-width widened from the
+     video's 480px to suit this wider 5-character banner composition. */
+  width:100%; max-width:900px; height:auto; margin:0 auto; display:block;
   border-radius:var(--radius-lg); box-shadow:var(--shadow-md);
 }
 @media (prefers-reduced-motion:reduce){ .crunch-poster-wrap{ animation:none; } }
