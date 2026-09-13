@@ -802,8 +802,25 @@ section{ padding:64px 0; }
 .team-card .role{ font-size:.78rem; font-weight:700; color:var(--orange-dk); margin-bottom:8px; }
 .team-card .bio{ font-size:.85rem; color:var(--text-soft); margin-bottom:0; }
 
-/* Testimonials */
-.quote-card{ background:var(--white); border:1px solid var(--line); border-radius:var(--radius-md); padding:26px; box-shadow:var(--shadow-sm); }
+/* Testimonials — claymorphism, same puffy cream/warm-shadow language as
+   .grid-4 .card: paired light/dark shadows instead of a hard border. */
+.quote-card{
+  background:var(--cream); border:none; border-radius:24px; padding:28px 26px;
+  box-shadow:
+    9px 9px 18px rgba(196,163,112,.28),
+    -9px -9px 18px rgba(255,255,255,.95),
+    inset 1px 1px 2px rgba(255,255,255,.6),
+    inset -2px -2px 4px rgba(196,163,112,.12);
+  transition:box-shadow .25s ease;
+}
+.quote-card:hover{
+  box-shadow:
+    13px 13px 26px rgba(196,163,112,.32),
+    -13px -13px 26px rgba(255,255,255,1),
+    inset 1px 1px 2px rgba(255,255,255,.7),
+    inset -2px -2px 4px rgba(196,163,112,.1);
+}
+@media (prefers-reduced-motion:reduce){ .quote-card{ transition:none; } }
 .quote-card .stars{ color:var(--orange); letter-spacing:2px; margin-bottom:10px; }
 .quote-card .who{ font-weight:700; margin-top:14px; font-size:.9rem; }
 .quote-card .who span{ display:block; font-weight:400; color:var(--text-soft); font-size:.8rem; }
