@@ -263,9 +263,9 @@ section{ padding:64px 0; }
 }
 @keyframes toggle-burst-anim{ to{ transform:translate(-50%,-50%) scale(1.7); opacity:0; } }
 @media (prefers-reduced-motion:reduce){
-  .nav-toggle{ transition:border-color .2s ease; }
-  .nav-toggle:hover{ transform:translateY(-50%); box-shadow:none; }
-  .nav-toggle:active{ transform:translateY(-50%); }
+  .nav-toggle{ transition:box-shadow .2s ease; }
+  .nav-toggle:hover{ transform:translateY(-50%); }
+  .nav-toggle:active,.nav-toggle.is-open{ transform:translateY(-50%); }
   .nav-toggle span{ transition:opacity .2s ease; }
   .nav-toggle:hover:not(.is-open) span{ animation:none; }
   .toggle-burst{ display:none; }
