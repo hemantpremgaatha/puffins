@@ -175,15 +175,26 @@ section{ padding:64px 0; }
   .brand .tag{ display:inline-block; font-size:.6rem; font-weight:600; letter-spacing:.12em; color:var(--text-soft); text-transform:uppercase; margin-left:2px; }
 }
 
-.nav-link{ font-weight:700; font-size:1.25rem; letter-spacing:.01em; color:var(--text); padding:12px 0; position:relative; white-space:nowrap; }
-.nav-link.active,.nav-link:hover{ color:var(--orange-dk); }
-.nav-link::after{
-  content:""; position:absolute; left:0; right:0; bottom:-4px; height:3px; border-radius:3px;
-  background:var(--gradient-brand); transform:scaleX(0); transform-origin:left; transition:transform .25s ease;
+/* Clay pill buttons instead of an underline: raised by default, presses
+   into the surface (inset shadow) for the active/current-page link, same
+   dual light/dark shadow pairing as the header itself. */
+.nav-link{
+  font-weight:700; font-size:1.25rem; letter-spacing:.01em; color:var(--navy);
+  padding:10px 22px; border-radius:999px; position:relative; white-space:nowrap;
+  background:var(--cream);
+  box-shadow:
+    6px 6px 12px rgba(196,163,112,.28),
+    -6px -6px 12px rgba(255,255,255,.9);
+  transition:box-shadow .2s ease, transform .15s ease, color .15s ease;
 }
-.nav-link:hover::after{ transform:scaleX(1); }
-.nav-link.active::after{ transform:scaleX(1); }
-@media (prefers-reduced-motion:reduce){ .nav-link::after{ transition:none; } }
+.nav-link:hover{ color:var(--orange-dk); transform:translateY(-2px); }
+.nav-link.active,.nav-link:active{
+  color:var(--orange-dk); transform:translateY(0);
+  box-shadow:
+    inset 4px 4px 8px rgba(196,163,112,.32),
+    inset -4px -4px 8px rgba(255,255,255,.85);
+}
+@media (prefers-reduced-motion:reduce){ .nav-link{ transition:box-shadow .2s ease, color .15s ease; } .nav-link:hover{ transform:none; } }
 .nav-link-left{ justify-self:end; }
 .nav-link-right{ justify-self:start; }
 @media (max-width:479px){
