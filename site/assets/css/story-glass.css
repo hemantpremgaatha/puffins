@@ -1,0 +1,230 @@
+/* ==========================================================================
+   OUR STORY — Liquid Glass UI treatment
+   Scoped entirely under body.page-story-glass so it repaints ONLY
+   our-story.html and never leaks into the shared site.css used by every
+   other page. Loaded after style.css, so every rule here is prefixed with
+   .page-story-glass to win on specificity regardless of source order.
+   ========================================================================== */
+
+/* ---------- Ambient colour field ----------
+   Liquid glass needs something colourful behind it to refract. A fixed,
+   slowly-drifting field of blurred brand-gradient blobs sits at z-index:-1
+   behind a deep navy base; every section on the page is made transparent
+   (or turned into a translucent glass panel) so this shows through. */
+body.page-story-glass{
+  background:linear-gradient(165deg,#0a1a2e 0%,#0f2740 45%,#1a1440 100%);
+}
+body.page-story-glass::before{
+  content:"";
+  position:fixed; inset:-10%; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(38% 32% at 12% 18%, rgba(23,179,163,.55), transparent 70%),
+    radial-gradient(42% 38% at 88% 10%, rgba(106,75,214,.5), transparent 70%),
+    radial-gradient(46% 40% at 80% 82%, rgba(214,56,154,.4), transparent 70%),
+    radial-gradient(40% 36% at 12% 84%, rgba(255,138,0,.4), transparent 70%),
+    radial-gradient(30% 26% at 50% 46%, rgba(255,194,87,.25), transparent 70%);
+  filter:blur(70px) saturate(140%);
+  animation:glass-drift 28s ease-in-out infinite alternate;
+}
+@keyframes glass-drift{
+  0%{ transform:scale(1) translate(0,0); }
+  100%{ transform:scale(1.12) translate(-2%,2%); }
+}
+@media (prefers-reduced-motion:reduce){ body.page-story-glass::before{ animation:none; } }
+
+/* ---------- Base text on the ambient field ----------
+   Anything sitting directly on the ambient background (not inside a glass
+   panel) needs a light theme; card-scoped rules further down re-darken
+   text where it sits on a light-tinted glass surface instead. */
+.page-story-glass section{ background:transparent; }
+.page-story-glass .bg-cream{ background:transparent; }
+.page-story-glass h1,.page-story-glass h2{ color:#fff; }
+.page-story-glass .eyebrow{ color:#ffd98a; }
+.page-story-glass .story-tagline-plain{ color:#dbe4ec; }
+
+/* ---------- Shared glass sheen (specular highlight) ----------
+   One diagonal soft-light streak, reused on every glass panel below. */
+.page-story-glass .glass-hero-panel,
+.page-story-glass .story-reveal,
+.page-story-glass .story-quote-glass,
+.page-story-glass .steps-brutalist .step,
+.page-story-glass .team-card,
+.page-story-glass .bg-navy .container{
+  position:relative; overflow:hidden;
+}
+.page-story-glass .glass-hero-panel::after,
+.page-story-glass .story-reveal::after,
+.page-story-glass .story-quote-glass::after,
+.page-story-glass .steps-brutalist .step::after,
+.page-story-glass .team-card::after,
+.page-story-glass .bg-navy .container::after{
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none; border-radius:inherit;
+  background:linear-gradient(135deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,0) 42%);
+  mix-blend-mode:overlay;
+}
+.page-story-glass .glass-hero-panel > *,
+.page-story-glass .story-reveal > *,
+.page-story-glass .steps-brutalist .step > *,
+.page-story-glass .team-card > *,
+.page-story-glass .bg-navy .container > *{ position:relative; z-index:1; }
+
+/* ---------- Header / nav ---------- */
+.page-story-glass .site-header{
+  background:rgba(15,39,64,.32);
+  backdrop-filter:blur(18px) saturate(160%);
+  -webkit-backdrop-filter:blur(18px) saturate(160%);
+  border-bottom:1px solid rgba(255,255,255,.16);
+  box-shadow:0 8px 32px rgba(0,0,0,.25);
+}
+.page-story-glass .nav-link{ color:#eef3f8; }
+.page-story-glass .nav-link.active,.page-story-glass .nav-link:hover{ color:var(--yellow); }
+.page-story-glass .nav-toggle{ background:rgba(255,255,255,.14); border-color:rgba(255,255,255,.3); }
+.page-story-glass .nav-toggle span{ background:#fff; }
+.page-story-glass .nav-toggle span:nth-child(2){ background:var(--orange); }
+.page-story-glass .nav-mobile{
+  background:rgba(15,39,64,.72);
+  backdrop-filter:blur(26px) saturate(160%);
+  -webkit-backdrop-filter:blur(26px) saturate(160%);
+}
+.page-story-glass .nav-mobile a{ color:#eef3f8; border-bottom-color:rgba(255,255,255,.14); }
+
+/* ---------- Hero ---------- */
+.page-story-glass .breadcrumb{
+  display:inline-flex; padding:6px 14px; border-radius:999px;
+  background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+}
+.page-story-glass .glass-hero-panel{
+  padding:28px 30px; border-radius:28px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.28);
+  backdrop-filter:blur(22px) saturate(160%);
+  -webkit-backdrop-filter:blur(22px) saturate(160%);
+  box-shadow:0 20px 60px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.35);
+}
+.page-story-glass .hero-accent{
+  border-color:rgba(255,255,255,.55);
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+}
+
+/* ---------- Story prose panel ---------- */
+.page-story-glass .story-reveal{
+  padding:40px 44px; border-radius:28px;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(24px) saturate(160%);
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
+  border:1px solid rgba(255,255,255,.6);
+  box-shadow:0 24px 60px rgba(8,16,28,.35), inset 0 1px 0 rgba(255,255,255,.7);
+}
+@media (max-width:600px){ .page-story-glass .story-reveal{ padding:28px 24px; } }
+
+.page-story-glass .story-quote-glass{
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(20px) saturate(160%);
+  -webkit-backdrop-filter:blur(20px) saturate(160%);
+  border:1px solid rgba(255,255,255,.6);
+  border-left:6px solid var(--orange);
+  border-radius:24px; padding:32px; margin:36px 0;
+  font-size:1.3rem; font-weight:600; color:var(--navy);
+  box-shadow:0 20px 50px rgba(8,16,28,.3), inset 0 1px 0 rgba(255,255,255,.7);
+}
+
+.page-story-glass .story-people-line{ color:#fff; }
+
+/* ---------- Steps: Believe / Blend / Build / Belong / Bloom ----------
+   Replaces the neo-brutalist hard-edge treatment with frosted glass tiles
+   for this page only; the shared .steps-brutalist rules in style.css are
+   untouched for any other use. */
+.page-story-glass .steps-brutalist .step{
+  text-align:left;
+  background:rgba(255,255,255,.14);
+  backdrop-filter:blur(20px) saturate(160%);
+  -webkit-backdrop-filter:blur(20px) saturate(160%);
+  border:1px solid rgba(255,255,255,.32);
+  border-radius:24px;
+  padding:28px 24px 26px;
+  box-shadow:0 16px 40px rgba(8,16,28,.35), inset 0 1px 0 rgba(255,255,255,.45);
+  transform:perspective(1200px) rotateX(var(--rv-rx,0deg)) translateY(var(--rv-y,0px)) scale(var(--rv-s,1));
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+.page-story-glass .steps-brutalist .step:hover{
+  transform:perspective(1200px) rotateX(var(--rv-rx,0deg)) translateY(calc(var(--rv-y,0px) - 6px)) scale(var(--rv-s,1));
+  background:rgba(255,255,255,.20);
+  box-shadow:0 22px 50px rgba(8,16,28,.4), inset 0 1px 0 rgba(255,255,255,.55);
+}
+.page-story-glass .steps-brutalist .step .num{
+  width:44px; height:44px; border-radius:50%;
+  background:rgba(255,255,255,.2)!important; color:#fff;
+  border:1px solid rgba(255,255,255,.4);
+  box-shadow:0 6px 16px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.4);
+  margin:0 0 16px;
+}
+.page-story-glass .steps-brutalist .step h3{
+  color:#fff; text-transform:none; letter-spacing:normal;
+}
+.page-story-glass .steps-brutalist .step p{ color:#e3ecf3!important; }
+@media (max-width:479px){ .page-story-glass .steps-brutalist .step{ transform:none; } }
+
+/* ---------- Team cards ---------- */
+.page-story-glass .team-card{
+  background:rgba(255,255,255,.16);
+  backdrop-filter:blur(20px) saturate(160%);
+  -webkit-backdrop-filter:blur(20px) saturate(160%);
+  border:1px solid rgba(255,255,255,.32);
+  border-radius:24px;
+  box-shadow:0 16px 40px rgba(8,16,28,.35), inset 0 1px 0 rgba(255,255,255,.45);
+}
+.page-story-glass .team-card:hover{
+  box-shadow:0 22px 50px rgba(8,16,28,.42), inset 0 1px 0 rgba(255,255,255,.55);
+}
+.page-story-glass .team-card::before{
+  content:""; position:absolute; inset:0; top:0; left:0; transform:none;
+  width:100%; height:100%; border-radius:inherit; background:none; box-shadow:none;
+}
+.page-story-glass .team-card::after{ display:none; }
+.page-story-glass .team-card img{
+  background:rgba(255,255,255,.25);
+  box-shadow:0 6px 16px rgba(0,0,0,.3), inset 0 0 0 3px rgba(255,255,255,.5);
+}
+.page-story-glass .team-card h3{ color:#fff; text-shadow:none; }
+.page-story-glass .team-card .role{ color:var(--yellow); }
+.page-story-glass .team-card .bio{ color:#dbe4ec; }
+
+/* ---------- Company / navy section as a floating glass panel ---------- */
+.page-story-glass .bg-navy{ background:transparent; }
+.page-story-glass .bg-navy .container{
+  max-width:760px; padding:48px 40px; border-radius:32px;
+  background:rgba(15,39,64,.35);
+  backdrop-filter:blur(24px) saturate(160%);
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 24px 60px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.2);
+}
+.page-story-glass .bg-navy .eyebrow{ color:#ffd98a; }
+.page-story-glass .btn-light{
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.6);
+}
+.page-story-glass .btn-light:hover{ background:#fff; }
+
+/* ---------- Footer ---------- */
+.page-story-glass .site-footer{
+  background:rgba(11,21,36,.55);
+  backdrop-filter:blur(24px) saturate(160%);
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
+  border-top:1px solid rgba(255,255,255,.12);
+}
+
+/* ---------- No backdrop-filter support: fall back to solid-ish panels ---------- */
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .page-story-glass .story-reveal,
+  .page-story-glass .story-quote-glass{ background:rgba(255,255,255,.96); }
+  .page-story-glass .glass-hero-panel,
+  .page-story-glass .steps-brutalist .step,
+  .page-story-glass .team-card{ background:rgba(255,255,255,.3); }
+  .page-story-glass .bg-navy .container{ background:rgba(15,39,64,.8); }
+  .page-story-glass .site-header{ background:rgba(15,39,64,.88); }
+  .page-story-glass .nav-mobile{ background:rgba(15,39,64,.94); }
+  .page-story-glass .site-footer{ background:rgba(11,21,36,.92); }
+}
