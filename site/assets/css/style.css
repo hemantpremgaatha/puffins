@@ -175,38 +175,6 @@ section{ padding:64px 0; }
   .brand .tag{ display:inline-block; font-size:.6rem; font-weight:600; letter-spacing:.12em; color:var(--text-soft); text-transform:uppercase; margin-left:2px; }
 }
 
-/* ---------- Puff mascot: occasional wink ----------
-   No generative image editing is available, so this fakes a wink in CSS
-   over the static artwork rather than a hand-drawn winking pose: a
-   skin-tone "eyelid" ellipse sits over the left eye, positioned as
-   percentages of the wrapping span so it tracks correctly whether the logo
-   is rendering at full header height, shrunk-header height, or (were it
-   reused) any other size. scaleY(0) is invisible; animating toward
-   scaleY(1) reads as the lid closing over the eye and reopening. The
-   ::after crease line reuses the artwork's own eye-outline dark brown
-   (sampled directly from the PNG) and is squashed flat along with its
-   parent, so it only appears right at the moment the lid is closed. */
-.brand-mark-wrap{ position:relative; display:inline-block; line-height:0; }
-.wink-lid{
-  position:absolute; left:29%; top:28%; width:24%; height:22%;
-  background:radial-gradient(ellipse at center, #f5d08c 50%, #f5d08c 66%, rgba(245,208,140,0) 100%);
-  transform:scaleY(0); transform-origin:center;
-  animation:puff-wink 3s ease-in-out infinite;
-  pointer-events:none;
-}
-.wink-lid::after{
-  content:""; position:absolute; left:12%; right:12%; top:52%; height:11%;
-  transform:translateY(-50%); background:#2a140a; border-radius:999px;
-}
-@keyframes puff-wink{
-  0%, 74%{ transform:scaleY(0); }
-  80%{ transform:scaleY(1); }
-  88%{ transform:scaleY(1); }
-  94%{ transform:scaleY(0); }
-  100%{ transform:scaleY(0); }
-}
-@media (prefers-reduced-motion:reduce){ .wink-lid{ animation:none; transform:scaleY(0); } }
-
 /* Clay pill buttons instead of an underline: raised by default, presses
    into the surface (inset shadow) for the active/current-page link, same
    dual light/dark shadow pairing as the header itself. */
