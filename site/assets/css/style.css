@@ -165,9 +165,9 @@ section{ padding:64px 0; }
 }
 @media (min-width:900px){ .header-inner{ height:128px; } }
 .brand{ display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.3rem; color:var(--navy); }
-.brand-mark{ height:78px; width:auto; display:block; transition:height .25s ease; }
-@media (min-width:900px){ .brand-mark{ height:90px; } }
-.site-header.is-shrunk .brand-mark{ height:50px; }
+.brand-mark{ height:95px; width:auto; display:block; transition:height .25s ease; }
+@media (min-width:900px){ .brand-mark{ height:95px; } }
+.site-header.is-shrunk .brand-mark{ height:70px; }
 .site-header.is-shrunk .header-inner{ height:68px; }
 .site-header.is-shrunk ~ .nav-mobile{ inset:68px 0 0 0; }
 .brand .tag{ display:none; }
