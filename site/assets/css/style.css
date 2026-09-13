@@ -296,18 +296,28 @@ section{ padding:64px 0; }
   .nav-mobile,.nav-mobile li{ transition:none; }
 }
 
-/* Continuous gentle bob on each mobile nav link once the menu is open —
-   "Where to Buy" is a sibling .btn outside the <ul>, so it's untouched. */
-@keyframes nav-mobile-bob{
-  0%,100%{ transform:translateY(0); }
-  50%{ transform:translateY(-4px); }
+/* Continuous weightless 3D float on each mobile nav link once the menu is
+   open — perspective() lives inline in the transform itself (not on the
+   parent), so each chip tumbles in its own little 3D space: it lifts and
+   drifts toward the viewer (translateY/Z) while gently rocking on both
+   the X and Y axes, rather than a flat up-down bob. Slower (3.4s) and
+   eased both ways for that weightless, floaty quality. "Where to Buy" is
+   a sibling .btn outside the <ul>, so it's untouched. */
+@keyframes nav-mobile-float3d{
+  0%,100%{ transform:perspective(600px) translateY(0) translateZ(0) rotateX(0deg) rotateY(0deg); }
+  25%{ transform:perspective(600px) translateY(-6px) translateZ(10px) rotateX(5deg) rotateY(-4deg); }
+  50%{ transform:perspective(600px) translateY(-9px) translateZ(16px) rotateX(0deg) rotateY(0deg); }
+  75%{ transform:perspective(600px) translateY(-5px) translateZ(10px) rotateX(-5deg) rotateY(4deg); }
 }
-.nav-mobile.is-open li{ animation:nav-mobile-bob 2.4s ease-in-out infinite; }
+.nav-mobile.is-open li{
+  animation:nav-mobile-float3d 3.4s ease-in-out infinite;
+  transform-style:preserve-3d; will-change:transform;
+}
 .nav-mobile.is-open li:nth-child(1){ animation-delay:.5s; }
-.nav-mobile.is-open li:nth-child(2){ animation-delay:.62s; }
-.nav-mobile.is-open li:nth-child(3){ animation-delay:.74s; }
-.nav-mobile.is-open li:nth-child(4){ animation-delay:.86s; }
-.nav-mobile.is-open li:nth-child(5){ animation-delay:.98s; }
+.nav-mobile.is-open li:nth-child(2){ animation-delay:.75s; }
+.nav-mobile.is-open li:nth-child(3){ animation-delay:1s; }
+.nav-mobile.is-open li:nth-child(4){ animation-delay:1.25s; }
+.nav-mobile.is-open li:nth-child(5){ animation-delay:1.5s; }
 @media (prefers-reduced-motion:reduce){ .nav-mobile.is-open li{ animation:none; } }
 .nav-mobile ul{ display:flex; flex-direction:column; gap:12px; }
 /* Each link its own puffy clay chip instead of a flush list with hairline
