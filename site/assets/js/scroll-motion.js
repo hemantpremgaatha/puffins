@@ -101,7 +101,7 @@
   function initCascadeReveal() {
     var selector = [
       "main section .section-head", "main .card", "main .product-card",
-      "main .quote-card", "main .step", "main .cta-band"
+      "main .quote-card", "main .step", "main .cta-band", "main .crunch-poster"
     ].join(",");
     var els = document.querySelectorAll(selector);
     var siblingIndex = new Map();
