@@ -987,7 +987,7 @@ section{ padding:64px 0; }
    fully-visible values, so this degrades safely with JS disabled or under
    prefers-reduced-motion (scroll-motion.js simply never registers anything
    in that case, and these elements render at the defaults below). */
-.section-head, .quote-card, .step, .cta-band, .stmt-text{
+.section-head, .quote-card, .step, .cta-band, .stmt-text, .crunch-poster{
   opacity:var(--rv-o,1);
   transform:perspective(1200px) rotateX(var(--rv-rx,0deg)) translateY(var(--rv-y,0px)) scale(var(--rv-s,1));
   will-change:transform,opacity;
