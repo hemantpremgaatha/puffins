@@ -362,7 +362,15 @@ section{ padding:64px 0; }
    right as the visitor scrolls the first half-screen, and unwinds exactly
    backward on scroll-up, rather than idling on a fixed loop. */
 .hero-media img{
-  position:relative; z-index:1; border-radius:var(--radius-lg); box-shadow:var(--shadow-md); width:100%;
+  /* height:auto is load-bearing, not decorative: the img's width/height HTML
+     attributes map to a presentational `height` declaration, and with no
+     author rule to out-rank it, that fixed pixel height wins outright and
+     the image renders non-uniformly stretched to whatever width this
+     container happens to be — aspect-ratio-from-attributes never gets a
+     chance to run because height is never actually "auto". Explicitly
+     setting height:auto here is what lets the image keep its real shape. */
+  position:relative; z-index:1; border-radius:var(--radius-lg); box-shadow:var(--shadow-md);
+  width:100%; height:auto;
   opacity:var(--rv-o,1);
   transform:perspective(1200px) translateX(var(--rv-x,0px)) rotateY(var(--rv-ry,0deg)) translateY(var(--rv-y,0px)) scale(var(--rv-s,1));
 }
