@@ -33,8 +33,8 @@ window.PUFFINS_ASSISTANT = {
     },
     {
       id: "story",
-      keywords: ["founder", "story", "who started", "ceo", "origin", "parth", "samarthya", "sif", "company", "about you", "who are you", "who makes"],
-      answer: "Puffins is made by Samarthya Innovative Foods Pvt. Ltd. (SIF), based in Jaipur, Rajasthan. Founder & CEO Parthsarthi Pokra puts it simply: “Rice had always been a part of my world. I just hadn't thought of it as a snack.” Read the full story on our Our Story page."
+      keywords: ["founder", "story", "who started", "ceo", "origin", "parth", "samrthaya", "sif", "company", "about you", "who are you", "who makes"],
+      answer: "Puffins is made by Samrthaya Innovative Foods Pvt. Ltd. (SIF), based in Jaipur, Rajasthan. Founder & CEO Parthsarthi Pokra puts it simply: “Rice had always been a part of my world. I just hadn't thought of it as a snack.” Read the full story on our Our Story page."
     },
     {
       id: "location",
