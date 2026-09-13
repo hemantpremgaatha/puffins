@@ -1219,17 +1219,20 @@ body{ animation:page-fade-in .5s ease both; }
   padding:5px 12px; border-radius:999px; background:var(--cream); color:var(--orange-dk); border:1px solid #ffdca8;
 }
 
-/* ---------- Homepage product-range video showcase ----------
-   Source is a square (1080x1080) brand video — aspect-ratio:1/1 with
-   object-fit:contain (not cover/16:9) so its baked-in text isn't cropped,
-   width-capped so it doesn't dominate the full container on wide screens. */
-.product-showcase{ position:relative; }
-.product-showcase [hidden]{ display:none; }
-.showcase-video{
-  width:100%; max-width:480px; margin:0 auto; display:block; aspect-ratio:1/1;
-  object-fit:contain; background:var(--navy-80);
+/* ---------- Homepage "Puffed" character lineup poster ----------
+   Wrapper carries a perpetual gentle float (reusing --float-y) so the
+   poster never looks static once revealed; the poster image itself is
+   also added to initCascadeReveal's selector list (scroll-motion.js) and
+   the shared .section-head/.quote-card/etc consumer rule below, so it
+   gets the same spring pop-in-on-scroll as cards and steps elsewhere. */
+.crunch-poster-wrap{
+  animation:float-y 5s ease-in-out infinite;
+}
+.crunch-poster{
+  width:100%; max-width:760px; margin:0 auto; display:block;
   border-radius:var(--radius-lg); box-shadow:var(--shadow-md);
 }
+@media (prefers-reduced-motion:reduce){ .crunch-poster-wrap{ animation:none; } }
 
 /* ---------- Swipeable flavour row on narrow screens (keeps every option visible, no carousel hiding) ---------- */
 @media (max-width:480px){
