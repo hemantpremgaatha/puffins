@@ -204,11 +204,23 @@ section{ padding:64px 0; }
 .nav-toggle{
   position:absolute; top:50%; right:0; transform:translateY(-50%) scale(1) rotate(0deg);
   display:flex; flex-direction:column; justify-content:center; gap:5px;
-  width:46px; height:46px; border-radius:14px; border:1px solid var(--line); background:var(--white);
-  transition:transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .2s ease, border-color .2s ease;
+  width:46px; height:46px; border-radius:16px; border:none; background:var(--cream);
+  box-shadow:
+    6px 6px 12px rgba(196,163,112,.28),
+    -6px -6px 12px rgba(255,255,255,.9);
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .2s ease;
 }
-.nav-toggle:hover{ transform:translateY(-50%) scale(1.1) rotate(-4deg); box-shadow:var(--shadow-sm); border-color:var(--orange); }
-.nav-toggle:active{ transform:translateY(-50%) scale(0.88) rotate(2deg); }
+.nav-toggle:hover{
+  transform:translateY(-50%) scale(1.08) rotate(-4deg);
+  box-shadow:8px 8px 16px rgba(196,163,112,.32), -8px -8px 16px rgba(255,255,255,.95);
+}
+.nav-toggle:active,.nav-toggle.is-open{
+  transform:translateY(-50%) scale(0.94) rotate(2deg);
+  box-shadow:
+    inset 4px 4px 8px rgba(196,163,112,.3),
+    inset -4px -4px 8px rgba(255,255,255,.85);
+}
+.nav-toggle.is-open{ transform:translateY(-50%) scale(1) rotate(0deg); }
 .nav-toggle span{
   /* Square (not rounded) caps: a border-radius on a 2px-tall bar gets
      clamped to a full pill shape either way, and that rounding eats a much
