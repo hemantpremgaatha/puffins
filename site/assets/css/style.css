@@ -304,10 +304,10 @@ section{ padding:64px 0; }
    eased both ways for that weightless, floaty quality. "Where to Buy" is
    a sibling .btn outside the <ul>, so it's untouched. */
 @keyframes nav-mobile-float3d{
-  0%,100%{ transform:perspective(600px) translateY(0) translateZ(0) rotateX(0deg) rotateY(0deg); }
-  25%{ transform:perspective(600px) translateY(-6px) translateZ(10px) rotateX(5deg) rotateY(-4deg); }
-  50%{ transform:perspective(600px) translateY(-9px) translateZ(16px) rotateX(0deg) rotateY(0deg); }
-  75%{ transform:perspective(600px) translateY(-5px) translateZ(10px) rotateX(-5deg) rotateY(4deg); }
+  0%,100%{ transform:perspective(700px) translateY(0) translateZ(0) rotateX(0deg) rotateY(0deg); }
+  25%{ transform:perspective(700px) translateY(-6px) translateZ(10px) rotateX(6deg) rotateY(-1deg); }
+  50%{ transform:perspective(700px) translateY(-9px) translateZ(16px) rotateX(0deg) rotateY(0deg); }
+  75%{ transform:perspective(700px) translateY(-5px) translateZ(10px) rotateX(-6deg) rotateY(1deg); }
 }
 .nav-mobile.is-open li{
   animation:nav-mobile-float3d 3.4s ease-in-out infinite;
