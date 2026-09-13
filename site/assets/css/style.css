@@ -366,6 +366,19 @@ section{ padding:64px 0; }
   opacity:var(--rv-o,1);
   transform:perspective(1200px) translateX(var(--rv-x,0px)) rotateY(var(--rv-ry,0deg)) translateY(var(--rv-y,0px)) scale(var(--rv-s,1));
 }
+/* Perpetual gentle bob+wobble on the wrapper (not the img itself, which
+   already owns its transform via the scroll-canister reveal above, and not
+   .hero-media, which owns the pointer-tilt) — a separate ancestor keeps the
+   two transform-driven systems from clobbering each other while still
+   composing visually. */
+.hero-pack-wrap{ position:relative; animation:hero-pack-float 5s ease-in-out infinite; }
+@keyframes hero-pack-float{
+  0%,100%{ transform:translateY(0) rotate(0deg); }
+  25%{ transform:translateY(-8px) rotate(1deg); }
+  50%{ transform:translateY(-4px) rotate(0deg); }
+  75%{ transform:translateY(-10px) rotate(-1deg); }
+}
+@media (prefers-reduced-motion:reduce){ .hero-pack-wrap{ animation:none; } }
 .hero-blob{
   position:absolute; inset:-8% -18%; z-index:0; border-radius:50%;
   background:conic-gradient(from 180deg,#17b3a3,#6a4bd6,#d6389a,#ff8a00,#ffc257,#17b3a3);
