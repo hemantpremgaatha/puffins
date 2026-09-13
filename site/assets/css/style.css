@@ -191,7 +191,7 @@ section{ padding:64px 0; }
   position:absolute; left:30%; top:25%; width:19%; height:19%;
   background:#f7dda6; border-radius:50%;
   transform:scaleY(0); transform-origin:center;
-  animation:puff-wink 6s ease-in-out infinite;
+  animation:puff-wink 3s ease-in-out infinite;
   pointer-events:none;
 }
 .wink-lid::after{
