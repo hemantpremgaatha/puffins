@@ -311,8 +311,11 @@ section{ padding:64px 0; }
 @media (prefers-reduced-motion:reduce){ .nav-mobile.is-open li{ animation:none; } }
 .nav-mobile ul{ display:flex; flex-direction:column; gap:12px; }
 /* Each link its own puffy clay chip instead of a flush list with hairline
-   rules — matches the pill treatment of the desktop nav links. */
-.nav-mobile a{
+   rules — matches the pill treatment of the desktop nav links. Scoped to
+   `ul a` (not the broader `.nav-mobile a`) so it never touches the
+   "Where to Buy" .btn-primary sitting outside the list — that combined
+   selector's specificity was otherwise beating .btn-primary's background. */
+.nav-mobile ul a{
   display:block; padding:16px 18px; font-weight:600; font-size:1.05rem;
   border-radius:16px; background:var(--white);
   box-shadow:
@@ -320,14 +323,14 @@ section{ padding:64px 0; }
     -5px -5px 12px rgba(255,255,255,.9);
   transition:box-shadow .15s ease, transform .15s ease;
 }
-.nav-mobile a:hover{ transform:translateY(-2px); }
-.nav-mobile a:active{
+.nav-mobile ul a:hover{ transform:translateY(-2px); }
+.nav-mobile ul a:active{
   transform:translateY(0);
   box-shadow:
     inset 3px 3px 7px rgba(196,163,112,.28),
     inset -3px -3px 7px rgba(255,255,255,.85);
 }
-@media (prefers-reduced-motion:reduce){ .nav-mobile a{ transition:box-shadow .15s ease; } .nav-mobile a:hover{ transform:none; } }
+@media (prefers-reduced-motion:reduce){ .nav-mobile ul a{ transition:box-shadow .15s ease; } .nav-mobile ul a:hover{ transform:none; } }
 .nav-mobile .btn{ margin-top:20px; }
 
 /* ---------- Hero ---------- */
