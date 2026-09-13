@@ -345,17 +345,29 @@
   }
 
   /* ---------------- "Puff" chat assistant (site-wide) ----------------
-     Rule-based (keyword-matched), not a hosted-LLM integration — this is a
-     static, no-backend site, so there's no server to hold an API key
-     safely. Answers come from assets/js/assistant-data.js (general
-     business Q&A) plus live product fields read from window.PUFFINS_PRODUCTS
-     (ingredients/pack size), so it never drifts out of sync with the
-     product tabs and never invents a regulated figure that isn't confirmed
-     there yet. Uses a plain chat-bubble icon (chatIconSVG) — Puff the
-     character now lives only in the nav logo, see assets/img/brand/puff-mascot.png. */
+     Not a hosted-LLM integration — this is a static, no-backend site, so
+     there's no server to hold an API key safely. Two layers, tried in order:
+
+     1. Exact rule (matchTopic/buildAssistantTopics): keyword-matched Puffins
+        brand/product facts from assets/js/assistant-data.js plus live fields
+        from window.PUFFINS_PRODUCTS (ingredients/pack size), so it never
+        drifts out of sync with the product tabs and never invents a
+        regulated figure that isn't confirmed there yet.
+     2. Generic fallback (queryGrainsKnowledge): a small *unsupervised*
+        TF-IDF + cosine-similarity retrieval engine (TinyTfidf, see
+        assets/js/tfidf-search.js) searching assets/js/grains-knowledge.js —
+        general education on food grains, rice cakes as a category, and
+        healthy snacking, for questions that aren't about this product
+        specifically. See tfidf-search.js's header comment for why this is
+        TF-IDF retrieval rather than a trained RNN/LSTM.
+
+     If neither layer is confident, kb.fallback is used. Uses the Puff
+     mascot (assistantIconMarkup) — the same artwork as the nav logo, see
+     assets/img/brand/puff-mascot.png. */
   function initAssistant() {
     var kb = window.PUFFINS_ASSISTANT;
     if (!kb) return;
+    var grainsEngine = buildGrainsEngine();
 
     var launcher = document.createElement("button");
     launcher.type = "button";
@@ -363,7 +375,7 @@
     launcher.setAttribute("aria-expanded", "false");
     launcher.setAttribute("aria-controls", "assistant-panel");
     launcher.setAttribute("aria-label", "Chat with Puff, the Puffins assistant");
-    launcher.innerHTML = chatIconSVG() + '<span class="assistant-ping" aria-hidden="true"></span>';
+    launcher.innerHTML = assistantIconMarkup() + '<span class="assistant-ping" aria-hidden="true"></span>';
 
     var panel = document.createElement("div");
     panel.className = "assistant-panel";
@@ -373,7 +385,7 @@
     panel.hidden = true;
     panel.innerHTML =
       '<div class="assistant-head">' +
-        '<div class="assistant-avatar">' + chatIconSVG() + '</div>' +
+        '<div class="assistant-avatar">' + assistantIconMarkup() + '</div>' +
         '<div><strong>Puff</strong><span>Puffins snack assistant</span></div>' +
         '<button type="button" class="assistant-close" aria-label="Close chat">&times;</button>' +
       '</div>' +
@@ -411,7 +423,7 @@
         chip.textContent = q.label;
         chip.addEventListener("click", function () {
           addMessage(q.label, "user");
-          reply(q.topic);
+          reply(q.topic, q.query || q.label);
         });
         chipsEl.appendChild(chip);
       });
@@ -440,8 +452,9 @@
 
     var reply = function (topicId, query) {
       var topic = topicId ? findTopic(topicId) : matchTopic(query || "");
+      var answer = topic ? topic.answer : (query ? queryGrainsKnowledge(grainsEngine, query) : null);
       window.setTimeout(function () {
-        addMessage(topic ? topic.answer : kb.fallback, "bot");
+        addMessage(answer || kb.fallback, "bot");
       }, 250);
     };
 
@@ -507,17 +520,32 @@
     return topics;
   }
 
-  /* Plain speech-bubble icon (with a typing-dots motif) for the chat
-     launcher and the chat-panel header avatar — Puff the character isn't
-     drawn here any more; see assets/img/brand/puff-mascot.png for
-     where Puff now lives (the nav logo/home button, .brand-mark img). */
-  function chatIconSVG() {
-    return '<svg viewBox="0 0 24 24" width="60%" height="60%" aria-hidden="true">' +
-        '<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H10l-5 4v-4H6.5A2.5 2.5 0 0 1 4 13.5z" fill="#FFF7EE"/>' +
-        '<circle cx="8.5" cy="9.6" r="1.3" fill="#0F2740"/>' +
-        '<circle cx="12" cy="9.6" r="1.3" fill="#0F2740"/>' +
-        '<circle cx="15.5" cy="9.6" r="1.3" fill="#0F2740"/>' +
-      '</svg>';
+  /* Unsupervised fit (see tfidf-search.js) of the generic grains/rice-cakes/
+     healthy-snacking corpus. Runs once, client-side, at assistant init —
+     no server, no labels, just TF-IDF statistics over grains-knowledge.js. */
+  function buildGrainsEngine() {
+    var corpus = window.PUFFINS_GRAINS_KNOWLEDGE;
+    if (!corpus || !corpus.length || typeof TinyTfidf === "undefined") return null;
+    var engine = new TinyTfidf().fit(corpus.map(function (d) { return d.match; }));
+    return { engine: engine, corpus: corpus };
+  }
+
+  /* Cosine-similarity nearest-neighbour lookup against the fitted corpus.
+     MIN_SCORE guards against answering confidently on an unrelated query —
+     below it, callers should fall through to kb.fallback instead. */
+  var GRAINS_MIN_SCORE = 0.12;
+  function queryGrainsKnowledge(built, query) {
+    if (!built) return null;
+    var hits = built.engine.query(query, 1);
+    if (!hits.length || hits[0].score < GRAINS_MIN_SCORE) return null;
+    return built.corpus[hits[0].index].answer;
+  }
+
+  /* The Puff mascot for the chat launcher and the chat-panel header avatar —
+     same artwork as the nav logo (assets/img/brand/puff-mascot.png, the
+     .brand-mark img in every header), so the assistant is visibly "Puff". */
+  function assistantIconMarkup() {
+    return '<img src="assets/img/brand/puff-mascot.png" alt="" class="assistant-icon">';
   }
 
   /* ---------------- Header shadow on scroll ---------------- */

@@ -1175,20 +1175,20 @@ body{ animation:page-fade-in .5s ease both; }
 
 /* ---------- "Puff" chat assistant (site-wide) ----------
    Built by initAssistant() in main.js — injected on every page, not
-   hardcoded per-page markup. Uses a plain chat-bubble icon (chatIconSVG in
-   main.js), not a character — Puff now lives only in the nav logo (see
-   assets/img/brand/puff-mascot.png, the .brand-mark img in every header).
+   hardcoded per-page markup. Uses the Puff mascot (assistantIconMarkup in
+   main.js) — same artwork as the nav logo (assets/img/brand/puff-mascot.png,
+   the .brand-mark img in every header) — so the assistant is visibly Puff.
    Rule-based Q&A over
    assets/js/assistant-data.js + live product data — see that file's header
    comment for why it never invents regulated figures. */
 .assistant-launcher{
   position:fixed; right:20px; bottom:20px; z-index:150; width:60px; height:60px; border-radius:50%;
-  background:var(--navy); border:0; padding:8px; box-shadow:var(--shadow-md);
+  background:transparent; border:0; padding:0; box-shadow:var(--shadow-md);
   display:flex; align-items:center; justify-content:center; opacity:1;
   transition:transform .15s ease, opacity .2s ease;
 }
 .assistant-launcher:hover{ transform:translateY(-2px) scale(1.05); }
-.assistant-launcher svg{ width:100%; height:100%; animation:chat-icon-bob 2.6s ease-in-out infinite; }
+.assistant-icon{ width:100%; height:100%; object-fit:cover; border-radius:50%; animation:chat-icon-bob 2.6s ease-in-out infinite; }
 @keyframes chat-icon-bob{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-2px); } }
 .assistant-launcher .assistant-ping{
   position:absolute; top:-2px; right:-2px; width:14px; height:14px; border-radius:50%;
@@ -1198,7 +1198,7 @@ body{ animation:page-fade-in .5s ease both; }
 
 .assistant-panel{
   position:fixed; right:20px; bottom:90px; z-index:150; width:340px; max-width:calc(100vw - 32px);
-  height:min(480px, calc(100vh - 130px)); background:var(--white); border-radius:var(--radius-lg);
+  height:min(560px, calc(100vh - 110px)); background:var(--white); border-radius:var(--radius-lg);
   box-shadow:var(--shadow-md); border:1px solid var(--line); display:flex; flex-direction:column;
   overflow:hidden; opacity:0; transform:translateY(12px) scale(.97); pointer-events:none;
   transition:opacity .18s ease, transform .18s ease;
@@ -1209,7 +1209,7 @@ body{ animation:page-fade-in .5s ease both; }
   background:var(--navy); color:var(--white); padding:14px 16px; display:flex; align-items:center; gap:10px; flex-shrink:0;
 }
 .assistant-head .assistant-avatar{ width:34px; height:34px; flex-shrink:0; }
-.assistant-head .assistant-avatar svg{ animation:chat-icon-bob 2.6s ease-in-out infinite; }
+.assistant-head .assistant-avatar .assistant-icon{ animation:chat-icon-bob 2.6s ease-in-out infinite; }
 .assistant-head strong{ display:block; font-size:.96rem; }
 .assistant-head span{ display:block; font-size:.76rem; color:#cfe0ee; }
 .assistant-close{
@@ -1223,10 +1223,19 @@ body{ animation:page-fade-in .5s ease both; }
 .assistant-msg.bot{ align-self:flex-start; background:var(--cream); color:var(--text); border-bottom-left-radius:4px; }
 .assistant-msg.user{ align-self:flex-end; background:var(--navy); color:var(--white); border-bottom-right-radius:4px; }
 
-.assistant-quick-replies{ display:flex; flex-wrap:wrap; gap:6px; padding:0 16px 12px; flex-shrink:0; }
+/* Single scrollable row instead of wrapping — with 8 chips, wrapping ate
+   most of the panel's height and squeezed the message log down to a couple
+   of cut-off lines. A horizontal strip (common "suggestion chip" pattern)
+   stays a fixed, small height no matter how many chips get added later. */
+.assistant-quick-replies{
+  display:flex; flex-wrap:nowrap; gap:6px; padding:0 16px 12px; flex-shrink:0;
+  overflow-x:auto; scrollbar-width:thin;
+}
+.assistant-quick-replies::-webkit-scrollbar{ height:5px; }
+.assistant-quick-replies::-webkit-scrollbar-thumb{ background:var(--line); border-radius:999px; }
 .assistant-chip{
   background:var(--white); border:1px solid var(--line); color:var(--navy); border-radius:999px;
-  padding:6px 12px; font-size:.8rem; font-weight:600;
+  padding:6px 12px; font-size:.8rem; font-weight:600; white-space:nowrap; flex-shrink:0;
 }
 .assistant-chip:hover{ border-color:var(--orange); color:var(--orange-dk); }
 
@@ -1247,7 +1256,7 @@ body{ animation:page-fade-in .5s ease both; }
 }
 @media (prefers-reduced-motion:reduce){
   .assistant-launcher, .assistant-panel{ transition:none; }
-  .assistant-launcher svg, .assistant-head .assistant-avatar svg{ animation:none; }
+  .assistant-icon{ animation:none; }
 }
 
 /* ==========================================================================
