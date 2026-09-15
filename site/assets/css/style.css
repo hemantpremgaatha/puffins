@@ -1383,7 +1383,11 @@ body{ animation:page-fade-in .5s ease both; }
 .assistant-form button:hover{ background:var(--orange-hover); }
 
 @media (max-width:480px){
-  .assistant-panel{ right:16px; bottom:84px; width:calc(100vw - 32px); }
+  /* Base .assistant-panel height (min(560px, 100vh - 110px)) leaves only
+     ~110px of viewport showing on short phone screens — reads as a
+     full-page takeover. Capping to 68vh keeps the page visibly present
+     behind/above the panel instead of swallowing the whole screen. */
+  .assistant-panel{ right:16px; bottom:84px; width:calc(100vw - 32px); height:min(68vh, 480px); }
   .assistant-launcher{ right:16px; bottom:16px; }
 }
 @media (prefers-reduced-motion:reduce){
