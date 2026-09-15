@@ -486,6 +486,15 @@
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && panel.classList.contains("is-open")) close();
     });
+    // Tap/click anywhere outside the panel (and its launcher) closes it —
+    // "click" rather than "pointerdown" so the same tap that opens the
+    // panel via the launcher button doesn't also register here as an
+    // outside click on mobile.
+    document.addEventListener("click", function (e) {
+      if (!panel.classList.contains("is-open")) return;
+      if (panel.contains(e.target) || launcher.contains(e.target)) return;
+      close();
+    });
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
