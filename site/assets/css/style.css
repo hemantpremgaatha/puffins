@@ -789,10 +789,13 @@ section{ padding:64px 0; }
 @media (prefers-reduced-motion:reduce){ .steps-brutalist .step{ transition:none; } }
 @media (max-width:479px){ .steps-brutalist .step{ transform:none; } }
 
-/* Team grid */
-.team-grid{ display:grid; gap:22px; grid-template-columns:repeat(2,1fr); }
-@media (min-width:700px){ .team-grid{ grid-template-columns:repeat(3,1fr); } }
-@media (min-width:1000px){ .team-grid{ grid-template-columns:repeat(5,1fr); } }
+/* Team grid — flex-wrap (not CSS grid) so an incomplete last row (5
+   members doesn't divide evenly into 2 or 3 columns) centers itself
+   instead of leaving the final card stranded alone at the left edge. */
+.team-grid{ display:flex; flex-wrap:wrap; justify-content:center; gap:22px; }
+.team-grid .team-card{ flex:0 1 calc(50% - 11px); }
+@media (min-width:700px){ .team-grid .team-card{ flex-basis:calc(33.333% - 14.667px); } }
+@media (min-width:1000px){ .team-grid .team-card{ flex-basis:calc(20% - 17.6px); } }
 /* ---------- Team cards: skeuomorphic ID badges ----------
    Reads as a physical laminated badge clipped to a lanyard, not a flat
    web card: a warm paper-toned gradient (not a flat fill) with an inset
