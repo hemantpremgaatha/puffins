@@ -77,6 +77,7 @@
   window.addEventListener("resize", function () { dirty = true; requestTick(); });
 
   document.addEventListener("DOMContentLoaded", function () {
+    initHeaderShrink(); // functional UI compacting, not a decorative reveal — runs even under prefers-reduced-motion.
     if (reduced) return; // CSS custom-property fallbacks already render the fully-visible, untransformed state.
     initCascadeReveal();
     initStoryReveal();
