@@ -77,6 +77,7 @@
   window.addEventListener("resize", function () { dirty = true; requestTick(); });
 
   document.addEventListener("DOMContentLoaded", function () {
+    initHeaderShrink(); // functional UI compacting, not a decorative reveal — runs even under prefers-reduced-motion.
     if (reduced) return; // CSS custom-property fallbacks already render the fully-visible, untransformed state.
     initCascadeReveal();
     initStoryReveal();
@@ -166,6 +167,24 @@
         quote.style.setProperty("--rv-s", lerp(0.9, 1, tSpring));
       });
     }
+  }
+
+  /* ---------------- Sticky header: compact on scroll ----------------
+     Writes --header-t (0-1), which style.css turns into the header's
+     height via calc() — see the comment there for why this is a plain
+     scroll-position function instead of a CSS transition on a class
+     toggle: a transition here would run on its own wall-clock timer at
+     the same time the browser is natively resolving the sticky header's
+     position against the scroll gesture, and the two visibly fought each
+     other (the swipe jitter this was written to fix). Reaches full shrink
+     by scrollY 80, matching the header's own former is-shrunk threshold. */
+  function initHeaderShrink() {
+    var header = document.querySelector(".site-header");
+    if (!header) return;
+    watch(header, function () {
+      var p = clamp01(window.scrollY / 80);
+      header.style.setProperty("--header-t", p);
+    });
   }
 
   /* ---------------- Signature moment: the canister, right -> centre ----------------
