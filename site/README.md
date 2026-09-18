@@ -77,7 +77,7 @@ backend/serverless endpoint before go-live (currently simulates success client-s
 
 ## Before launch (from the brief's Section 23 checklist)
 Analytics (GA4 + Search Console) and Meta Pixel are not yet wired in — add before launch.
-Canonical/OG URLs and `sitemap.xml`/`robots.txt` now point to `saramthyafoods.com` (done).
+Canonical/OG URLs and `sitemap.xml`/`robots.txt` now point to `samrthayfoods.com` (done).
 Swap footer social links (`#`) for real handles. Add real product photography
 once available (`packshot-sea-salt.jpg` is a crop of the pitch-deck render, not studio
 photography). Confirm final logo files (SVG) — current logo assets are cropped from a
