@@ -21,11 +21,11 @@ window.PUFFINS_PRODUCTS = {
       ],
       "status": "available",
       "flavors": [
-        { "name": "Sea Salt", "status": "available", "swatch": "#0F2740", "tagline": "Our signature crunch, kept simple." },
-        { "name": "Peri Peri", "status": "coming-soon", "swatch": "#E2472B", "tagline": "Bold, smoky heat in every bite." },
-        { "name": "Herb & Garlic", "status": "coming-soon", "swatch": "#4F8A3D", "tagline": "Garden-fresh and savoury." },
-        { "name": "Tomato Basil", "status": "coming-soon", "swatch": "#C0392B", "tagline": "Sun-ripened tang, Italian twist." },
-        { "name": "Chaat Masala", "status": "coming-soon", "swatch": "#C77C1E", "tagline": "Tangy, spiced, unmistakably Indian." }
+        { "name": "Sea Salt", "status": "available", "swatch": "#0F2740", "tagline": "Our signature crunch, kept simple.", "description": "Our founding flavour — a light dusting of sea salt over the puffed rice cake, so the natural, nutty taste of the rice still leads. Clean and simple enough for a lunchbox, a desk drawer, or straight out of the sleeve." },
+        { "name": "Peri Peri", "status": "coming-soon", "swatch": "#E2472B", "tagline": "Bold, smoky heat in every bite.", "description": "A bold, smoky peri-peri seasoning over the same puffed rice base, built for anyone who wants their crunch with a kick. Good on its own, better with a cooling dip alongside." },
+        { "name": "Herb & Garlic", "status": "coming-soon", "swatch": "#4F8A3D", "tagline": "Garden-fresh and savoury.", "description": "A savoury blend of herbs and roasted garlic over the puffed rice cake — lighter on heat, bigger on aroma. For anyone who wants more than plain salt without going spicy." },
+        { "name": "Tomato Basil", "status": "coming-soon", "swatch": "#C0392B", "tagline": "Sun-ripened tang, Italian twist.", "description": "Tangy tomato with a hint of basil, an Italian-inspired twist on the classic rice cake. Bright and tangy enough to eat on its own, or topped with a light spread." },
+        { "name": "Chaat Masala", "status": "coming-soon", "swatch": "#C77C1E", "tagline": "Tangy, spiced, unmistakably Indian.", "description": "Our take on classic street-food chaat masala, dusted over the puffed rice cake — tangy, spiced, and instantly familiar. For when you want your snack to taste like home." }
       ],
       "packSize": { "value": "8 cakes per sleeve, 6 g each (48 g net)", "confirmed": true },
       "price": { "amount": null, "currency": "INR", "confirmed": false, "note": "Pricing to be confirmed by SIF before checkout goes live." },
@@ -72,6 +72,31 @@ window.PUFFINS_PRODUCTS = {
       "storage": { "text": "Store in a cool, dry place.", "confirmed": false },
       "faqs": [
         { "q": "When will Rice Chips launch?", "a": "Rice Chips are next on our roadmap. Join the list on our Contact page and we'll let you know the moment they're available." }
+      ]
+    },
+    {
+      "id": "dips",
+      "name": "Puffins Dips",
+      "slug": "dips",
+      "shortDescription": "Dips made to go with your Puffins rice cakes and chips — coming soon.",
+      "format": "To be confirmed",
+      "heroImage": "assets/img/brand/topped-four-ways.webp",
+      "galleryImages": [
+        "assets/img/brand/topped-four-ways.webp"
+      ],
+      "status": "coming-soon",
+      "flavors": [],
+      "packSize": { "value": null, "confirmed": false },
+      "price": { "amount": null, "currency": "INR", "confirmed": false, "note": "Pricing to be confirmed by SIF." },
+      "attributes": [],
+      "attributesConfirmed": false,
+      "ingredients": { "text": null, "confirmed": false },
+      "allergens": { "text": null, "confirmed": false },
+      "nutrition": { "perServing": null, "confirmed": false },
+      "shelfLife": { "text": null, "confirmed": false },
+      "storage": { "text": "Store in a cool, dry place.", "confirmed": false },
+      "faqs": [
+        { "q": "When will Dips launch?", "a": "Dips are next on our roadmap alongside Rice Chips. Join the list on our Contact page and we'll let you know the moment they're available." }
       ]
     }
   ]

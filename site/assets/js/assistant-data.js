@@ -21,6 +21,7 @@ window.PUFFINS_ASSISTANT = {
     { label: "The founder's story", topic: "story" },
     { label: "Is it gluten free?", topic: "allergens" },
     { label: "When do Rice Chips launch?", topic: "chips" },
+    { label: "Will there be Dips?", topic: "dips" },
     { label: "Why are whole grains healthy?", query: "why are whole grains healthy" },
     { label: "Benefits of healthy snacking", query: "benefits of healthy snacking" },
     { label: "Contact us", topic: "contact" }
@@ -60,6 +61,11 @@ window.PUFFINS_ASSISTANT = {
       id: "chips",
       keywords: ["rice chips", "chips", "next product", "new flavour", "when will", "launch date"],
       answer: "Rice Chips — our thin, crispy bag format — are next on the roadmap. Join the list on our Contact page and we'll tell you the moment they launch."
+    },
+    {
+      id: "dips",
+      keywords: ["dip", "dips", "sauce", "dipping"],
+      answer: "Dips are on the roadmap alongside Rice Chips — made to go with your Puffins rice cakes and chips. Flavours haven't been finalized yet. Join the list on our Contact page and we'll tell you the moment they launch."
     },
     {
       id: "contact",

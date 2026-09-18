@@ -655,7 +655,8 @@
         updateFlavorPreview(root, {
           name: chip.getAttribute("data-name"),
           swatch: swatch,
-          tagline: chip.getAttribute("data-tagline")
+          tagline: chip.getAttribute("data-tagline"),
+          description: chip.getAttribute("data-description")
         }, { animate: true });
       }
     });
@@ -697,8 +698,10 @@
     function applyContent() {
       var name = root.querySelector("[data-flavor-preview-name]");
       var tagline = root.querySelector("[data-flavor-preview-tagline]");
+      var note = root.querySelector("[data-flavor-note]");
       if (name) name.textContent = flavor.name;
       if (tagline) tagline.textContent = flavor.tagline || "";
+      if (note) note.textContent = flavor.description || "";
     }
 
     if (stage) stage.style.setProperty("--flavor-color", flavor.swatch || "");
@@ -903,6 +906,7 @@
         var soon = f.status === "coming-soon";
         return '<button type="button" class="flavor-chip' + (soon ? ' soon' : '') + '" ' +
           'data-name="' + f.name + '" data-swatch="' + f.swatch + '" data-tagline="' + (f.tagline || "") + '" ' +
+          'data-description="' + (f.description || "") + '" ' +
           (soon ? 'title="Coming soon" ' : '') +
           'aria-pressed="' + (i === 0 ? "true" : "false") + '">' +
           f.name + (soon ? ' · soon' : '') + '</button>';
