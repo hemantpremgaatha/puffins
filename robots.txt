@@ -4,4 +4,4 @@ Disallow: /privacy-policy.html
 Disallow: /terms.html
 Disallow: /shipping-returns.html
 
-Sitemap: https://www.saramthyafoods.com/sitemap.xml
+Sitemap: https://samrthayfoods.com/sitemap.xml
