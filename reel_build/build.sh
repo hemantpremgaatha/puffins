@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-cd "/d/Parth bana"
+cd "/d/Projects/Puffins/main"
 FF="/c/KMPlayer/ffmpeg.exe"
 W=1080
 H=1920
@@ -21,13 +21,13 @@ encode_photo() {
   idx=$((idx+1))
 }
 
-encode_photo "WhatsApp Image 2026-09-02 at 10.16.41 PM.jpeg"
+encode_photo "/d/THE_DATA/Parth bana/WhatsApp Image 2026-09-02 at 10.16.41 PM.jpeg"
 encode_photo "site/assets/img/brand/showcase-poster.jpg"
 encode_photo "site/assets/img/brand/packshot-sea-salt.jpg"
 encode_photo "site/assets/img/brand/topped-four-ways.webp"
 encode_photo "site/assets/img/brand/lifestyle-topped-egg-prosciutto.jpg"
-encode_photo "WhatsApp Image 2026-09-02 at 10.16.52 PM.jpeg"
-encode_photo "WhatsApp Image 2026-09-02 at 10.16.44 PM.jpeg"
+encode_photo "/d/THE_DATA/Parth bana/WhatsApp Image 2026-09-02 at 10.16.52 PM.jpeg"
+encode_photo "/d/THE_DATA/Parth bana/WhatsApp Image 2026-09-02 at 10.16.44 PM.jpeg"
 encode_photo "site/assets/img/brand/logo-lockup-wide.png"
 
 echo "Encoded $idx clips"
