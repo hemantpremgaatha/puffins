@@ -10,7 +10,7 @@ window.PUFFINS_PRODUCTS = {
       "id": "rice-cakes",
       "name": "Puffins Rice Cakes",
       "slug": "rice-cakes",
-      "shortDescription": "Baked, not fried. Light, crunchy puffed-rice cakes made for anytime snacking.",
+      "shortDescription": "Baked, not fried. Light, crunchy rice cakes that beg to be topped — banana and peanut butter, avocado, or straight from the pack.",
       "format": "Cylindrical tube pack",
       "heroImage": "assets/img/brand/packshot-sea-salt.jpg",
       "galleryImages": [
@@ -46,7 +46,7 @@ window.PUFFINS_PRODUCTS = {
       "id": "rice-chips",
       "name": "Puffins Rice Chips",
       "slug": "rice-chips",
-      "shortDescription": "Thin, crispy puffed-rice chips in a sealed bag — a snackier bite for on-the-go moments.",
+      "shortDescription": "Thin, crispy puffed-rice chips in a sealed bag — the snackier bite you'll reach for on repeat.",
       "format": "Sealed bag",
       "heroImage": "assets/img/brand/topped-four-ways.webp",
       "galleryImages": [
