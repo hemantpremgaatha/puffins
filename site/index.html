@@ -19,8 +19,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Baloo+2:wght@600;700;800&family=Sora:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css?v=46">
 <link rel="stylesheet" href="assets/css/pf-header.css?v=2">
-<link rel="stylesheet" href="assets/css/pf-motion.css?v=1">
-<link rel="stylesheet" href="assets/css/home-hero.css?v=6">
+<link rel="stylesheet" href="assets/css/pf-motion.css?v=2">
+<link rel="stylesheet" href="assets/css/home-hero.css?v=7">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -167,15 +167,24 @@
        automatically if this video ever fails to load. Sunburst accent below
        is a low-opacity texture layer sourced from the brand reference video's
        warm-template slides — see style.css .sunburst-accent. -->
-  <section class="bg-cream sunburst-accent">
+  <section class="pf-mascot bg-cream" id="mascot">
     <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Meet the Puffins Crew</p>
-        <h2 class="h2">Same crunch, <span class="word-flip" data-alt="a whole personality">endless personality</span>.</h2>
+      <div class="pf-mascot-grid">
+        <div class="pf-mascot-photo pf-reveal"><img src="assets/img/brand/hero-packshot-lifestyle.jpg" alt="The Puffins mascot in a navy hoodie and cap" loading="lazy" width="1254" height="1254"></div>
+        <div class="pf-reveal">
+          <p class="eyebrow">Same crunch, endless personality</p>
+          <h2 class="h2">Meet<br>the Puffs.</h2>
+          <p class="lead">Puffins isn't just a snack. It's a little character that shows up wherever good snacking happens.</p>
+          <div class="pf-characters">
+            <div class="pf-character"><b>The Puff</b><small>Crispy. Cheeky. Unstoppable.</small></div>
+            <div class="pf-character"><b>The Cruncher</b><small>Big crunch. Bigger smiles.</small></div>
+            <div class="pf-character"><b>The Explorer</b><small>Good snacks. Greater adventures.</small></div>
+            <div class="pf-character"><b>The Cool Puff</b><small>Same snack. Cooler vibes.</small></div>
+            <div class="pf-character"><b>The Duo</b><small>Sweet or savoury. Always a good choice.</small></div>
+          </div>
+        </div>
       </div>
-      <div class="crunch-poster-wrap">
-        <img class="crunch-poster" src="assets/img/brand/anytime-crunch-lineup.jpg" alt="The Puffins character lineup: The Puff, The Cruncher, The Explorer, The Cool Puff, and The Duo" loading="lazy" width="1536" height="1024">
-      </div>
+      <div class="crunch-poster-wrap" style="margin-top:48px;"><img class="crunch-poster" src="assets/img/brand/anytime-crunch-lineup.jpg" alt="The Puffins character lineup: The Puff, The Cruncher, The Explorer, The Cool Puff, and The Duo" loading="lazy" width="1536" height="1024"></div>
     </div>
   </section>
 
@@ -235,51 +244,52 @@
   </section>
 
   <!-- FLAVOURS -->
-  <section class="bg-cream">
+  <section class="pf-flavours bg-cream" id="flavours">
     <div class="container">
       <div class="section-head">
-        <p class="eyebrow">Flavours</p>
+        <p class="eyebrow">Flavour universe</p>
         <h2 class="h2">Pick your puff.</h2>
-        <p class="lead" style="margin:0 auto;">One neutral, crunchy base. Five very different personalities.</p>
+        <p class="lead" style="margin:0 auto;">From clean Himalayan salt to full-on desi flavour &mdash; every Puff has its own personality.</p>
       </div>
-      <div class="grid grid-3" style="margin-top:8px;">
-        <div class="card" style="border-top:4px solid #0F2740;">
-          <div class="badge orange" style="margin-bottom:10px;">Available now</div>
-          <h3>Sea Salt</h3>
-          <p style="font-weight:700;color:var(--navy);font-size:.9rem;margin-bottom:6px;">Clean. Salty. Addictive.</p>
-          <p>A light dusting of sea salt so the natural, nutty rice flavour still leads.</p>
-          <p class="text-soft" style="font-size:.82rem;margin-top:10px;">Flavoured with: rice, sea salt</p>
-        </div>
-        <div class="card" style="border-top:4px solid #E2472B;">
-          <div class="badge" style="margin-bottom:10px;">Coming soon</div>
-          <h3>Peri Peri</h3>
-          <p style="font-weight:700;color:var(--navy);font-size:.9rem;margin-bottom:6px;">Bold. Smoky. Full-on heat.</p>
-          <p>A bold, smoky peri-peri seasoning for anyone who wants their crunch with a kick.</p>
-          <p class="text-soft" style="font-size:.82rem;margin-top:10px;">Flavoured with: rice, paprika, garlic, chilli</p>
-        </div>
-        <div class="card" style="border-top:4px solid #4F8A3D;">
-          <div class="badge" style="margin-bottom:10px;">Coming soon</div>
-          <h3>Herb &amp; Garlic</h3>
-          <p style="font-weight:700;color:var(--navy);font-size:.9rem;margin-bottom:6px;">Savoury. Fragrant. Unexpected.</p>
-          <p>Roasted garlic and mixed herbs — lighter on heat, bigger on aroma.</p>
-          <p class="text-soft" style="font-size:.82rem;margin-top:10px;">Flavoured with: rice, roasted garlic, mixed herbs</p>
-        </div>
-        <div class="card" style="border-top:4px solid #C0392B;">
-          <div class="badge" style="margin-bottom:10px;">Coming soon</div>
-          <h3>Tomato Basil</h3>
-          <p style="font-weight:700;color:var(--navy);font-size:.9rem;margin-bottom:6px;">Tangy. Bright. Italian-inspired.</p>
-          <p>Sun-dried tomato with a hint of basil, bright enough to eat on its own.</p>
-          <p class="text-soft" style="font-size:.82rem;margin-top:10px;">Flavoured with: rice, sun-dried tomato, basil</p>
-        </div>
-        <div class="card" style="border-top:4px solid #C77C1E;">
-          <div class="badge" style="margin-bottom:10px;">Coming soon</div>
-          <h3>Chaat Masala</h3>
-          <p style="font-weight:700;color:var(--navy);font-size:.9rem;margin-bottom:6px;">Tangy. Spiced. Full-on chaos.</p>
-          <p>Our take on classic street-food chaat masala — tangy, spiced, instantly familiar.</p>
-          <p class="text-soft" style="font-size:.82rem;margin-top:10px;">Flavoured with: rice, chaat masala spice blend</p>
-        </div>
+      <div class="pf-flavour-grid">
+        <article class="pf-flavour pf-reveal">
+          <div class="pf-flavour-media"><img src="assets/img/brand/packshot-sea-salt.jpg" alt="Puffins Himalayan Salt rice cakes tube pack" loading="lazy"></div>
+          <div class="pf-flavour-body"><span class="pf-tag">Classic</span><span class="badge orange">Available now</span>
+            <h3>Himalayan Salt</h3><p>Simple. Pure. Delicious. A clean salty crunch that lets the rice shine.</p>
+            <a class="pf-textbtn" href="shop.html">Try the classic &rarr;</a></div>
+        </article>
+        <article class="pf-flavour pf-reveal">
+          <div class="pf-flavour-media" style="--c1:#ff6b35;--c2:#c1502e"><b>Tandoori<br>Tikka</b></div>
+          <div class="pf-flavour-body"><span class="pf-tag">Desi heat</span><span class="badge">Coming soon</span>
+            <h3>Tandoori Tikka</h3><p>Smoky, spicy and packed with familiar tandoori character.</p>
+            <a class="pf-textbtn" href="contact.html">Get notified &rarr;</a></div>
+        </article>
+        <article class="pf-flavour pf-reveal">
+          <div class="pf-flavour-media" style="--c1:#ffc93c;--c2:#ff8a00"><b>Mango<br>Chilli Tang</b></div>
+          <div class="pf-flavour-body"><span class="pf-tag">Fruity kick</span><span class="badge">Coming soon</span>
+            <h3>Mango Chilli Tang</h3><p>Sweet mango meets chilli and tang for a playful, addictive bite.</p>
+            <a class="pf-textbtn" href="contact.html">Get notified &rarr;</a></div>
+        </article>
+        <article class="pf-flavour pf-reveal">
+          <div class="pf-flavour-media" style="--c1:#e9b872;--c2:#b9772e"><b>Honey<br>Cinnamon<br>Almond</b></div>
+          <div class="pf-flavour-body"><span class="pf-tag">Sweet crunch</span><span class="badge">Coming soon</span>
+            <h3>Honey Cinnamon Almond</h3><p>Warm cinnamon, honey sweetness and almond crunch in one cosy bite.</p>
+            <a class="pf-textbtn" href="contact.html">Get notified &rarr;</a></div>
+        </article>
+        <article class="pf-flavour pf-reveal">
+          <div class="pf-flavour-media" style="--c1:#6fbf73;--c2:#2f7d3a"><b>Herb<br>Boutique<br>Garlic</b></div>
+          <div class="pf-flavour-body"><span class="pf-tag">Savoury</span><span class="badge">Coming soon</span>
+            <h3>Herb Boutique Garlic</h3><p>Fresh herbs and garlic for a fragrant, premium savoury crunch.</p>
+            <a class="pf-textbtn" href="contact.html">Get notified &rarr;</a></div>
+        </article>
+        <article class="pf-flavour pf-reveal">
+          <div class="pf-flavour-media" style="--c1:#8a5a3c;--c2:#4a2016"><b>Smoky<br>Imli Chaat</b></div>
+          <div class="pf-flavour-body"><span class="pf-tag">Street-style</span><span class="badge">Coming soon</span>
+            <h3>Smoky Imli Chaat</h3><p>Tangy imli, chaat masala and a smoky finish &mdash; truly desi, truly different.</p>
+            <a class="pf-textbtn" href="contact.html">Get notified &rarr;</a></div>
+        </article>
       </div>
-      <p class="text-center text-soft" style="margin-top:24px;">Launch dates are being finalized — <a href="contact.html" style="color:var(--orange-dk);font-weight:600;">get notified</a> the moment new flavours drop.</p>
+      <p class="text-center text-soft" style="margin-top:28px;">Launch dates are being finalized &mdash; <a href="contact.html" style="color:var(--pf-orange);font-weight:700;">get notified</a> the moment new flavours drop.</p>
     </div>
   </section>
 
@@ -379,6 +389,6 @@
 <script src="assets/js/tfidf-search.js?v=34"></script>
 <script src="assets/js/main.js?v=34"></script>
 <script src="assets/js/scroll-motion.js?v=35"></script>
-<script src="assets/js/pf-motion.js?v=1" defer></script>
+<script src="assets/js/pf-motion.js?v=2" defer></script>
 </body>
 </html>
