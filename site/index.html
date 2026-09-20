@@ -16,8 +16,9 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Baloo+2:wght@600;700;800&family=Sora:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css?v=46">
+<link rel="stylesheet" href="assets/css/home-hero.css?v=3">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -39,20 +40,22 @@
 }
 </script>
 </head>
-<body>
+<body class="home">
 <a class="skip-link" href="#main">Skip to content</a>
 
 <!--#include header -->
 <header class="site-header">
-  <div class="container header-inner">
-    <a class="nav-link nav-link-left" href="shop.html">Our Products</a>
-    <a class="brand" href="index.html" aria-label="Puffins home">
-      <img src="assets/img/brand/puff-mascot.png" alt="Puffins" class="brand-mark">
-    </a>
-    <a class="nav-link nav-link-right" href="our-story.html">Our Story</a>
-    <button class="nav-toggle" data-nav-toggle aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+  <div class="pf-nav">
+    <a class="pf-logo" href="index.html" aria-label="Puffins home">PUFFINS</a>
+    <ul class="pf-links">
+      <li><a href="shop.html">Flavours</a></li>
+      <li><a href="why-puffins.html">Universe</a></li>
+      <li><a href="product-dips.html">Dip</a></li>
+      <li><a href="our-story.html">Founders</a></li>
+      <li><a href="our-story.html">Story</a></li>
+    </ul>
+    <a class="pf-cta" href="shop.html">Pick a Puff</a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
   <nav class="nav-mobile" data-nav-mobile aria-label="Mobile">
@@ -71,31 +74,26 @@
 <main id="main">
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow">By Samrthaya Innovative Foods</p>
-        <h1 class="h1">Crunch.<br>Dip.<br><span class="hero-hl">Repeat.</span></h1>
-        <p class="lead">The rice cake snack made for your kind of cravings — piled with peanut butter and banana, silky avocado, or dunked straight into your favourite dip.</p>
-        <div class="btnrow">
-          <a href="shop.html" class="btn btn-primary">Shop Puffins</a>
-          <a href="our-story.html" class="btn btn-outline">Our Story</a>
-        </div>
-        <div class="hero-stats">
-          <div><strong>Puffed</strong><span>not fried</span></div>
-          <div><strong>Gluten free</strong><span>100% vegetarian</span></div>
-          <div><strong>Zero</strong><span>added preservatives</span></div>
+  <section class="pf-hero">
+    <div class="pf-hero-grid">
+      <div class="pf-copy">
+        <h1 class="pf-title">
+          <i class="pf-dot d1"></i><i class="pf-dot d2"></i><i class="pf-dot d3"></i>
+          <span>The crunch</span><span>has</span><span class="pf-hot">entered</span><span>the</span><span>chat.</span>
+        </h1>
+        <p class="pf-lead">Rice cakes, but make them loud. Light, flavourful, ridiculously snackable &mdash; and absolutely not here to behave like a boring diet snack.</p>
+        <div class="pf-btnrow">
+          <a href="shop.html" class="pf-btn solid">Pick a Puff</a>
+          <a href="our-story.html" class="pf-btn ghost">Our Story</a>
         </div>
       </div>
-      <div class="hero-media">
-        <div class="hero-blob" aria-hidden="true"></div>
-        <div class="hero-pack-wrap">
-          <img src="assets/img/brand/topped-four-ways.webp" alt="Puffins rice cakes topped four ways — peanut butter and banana, avocado, cottage cheese, and strawberries" width="768" height="1024" fetchpriority="high">
+      <div class="pf-media">
+        <div class="pf-frame">
+          <img src="assets/img/brand/packshot-sea-salt.jpg" alt="Puffins Salted crispy rice cakes tube pack with the Puffins mascot" width="1024" height="1536" fetchpriority="high">
         </div>
-        <div class="hero-floatcard">
-          <strong>😋 4 ways</strong>
-          <span>to top your crunch</span>
-        </div>
+        <div class="pf-warn">warning: may disappear from your desk &#10022;</div>
+        <div class="pf-sticker"><b>Zero<br>boring.</b><small>100% puff.</small></div>
+        <i class="pf-green" aria-hidden="true"></i>
       </div>
     </div>
   </section>
