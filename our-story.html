@@ -14,8 +14,9 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/pf-header.css?v=1">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -27,19 +28,21 @@
 }
 </script>
 </head>
-<body>
+<body class="pf-page">
 <a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site-header">
-  <div class="container header-inner">
-    <a class="nav-link nav-link-left" href="shop.html">Our Products</a>
-    <a class="brand" href="index.html" aria-label="Puffins home">
-      <img src="assets/img/brand/logo-mark-2026.svg" alt="Puffins" class="brand-mark">
-    </a>
-    <a class="nav-link nav-link-right active" href="our-story.html">Our Story</a>
-    <button class="nav-toggle" data-nav-toggle aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+  <div class="pf-nav">
+    <a class="pf-logo" href="index.html" aria-label="Puffins home">PUFFINS</a>
+    <ul class="pf-links">
+      <li><a href="shop.html">Flavours</a></li>
+      <li><a href="why-puffins.html">Universe</a></li>
+      <li><a href="shop.html">Dip</a></li>
+      <li><a href="our-story.html">Founders</a></li>
+      <li><a href="our-story.html">Story</a></li>
+    </ul>
+    <a class="pf-cta" href="shop.html">Pick a Puff</a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
   <nav class="nav-mobile" data-nav-mobile aria-label="Mobile">
