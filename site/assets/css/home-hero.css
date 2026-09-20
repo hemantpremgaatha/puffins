@@ -112,3 +112,73 @@ body.home .pf-cta:hover{ transform:translateY(-2px); background:#0d1240; }
 }
 @media (min-width:900px){ body.home .nav-toggle{ display:none; } }
 .pf-title{ font-size:clamp(3rem,8.4vw,8rem); }
+
+/* ===== Rest of homepage — same visual language as the hero ===== */
+body.home{ font-family:'Poppins',sans-serif; color:#3b3e52; }
+body.home main > section{ background:var(--pf-cream); }
+body.home .bg-cream{ background:var(--pf-cream); }
+body.home .bg-navy{ background:var(--pf-navy); }
+body.home .h2{
+  font-family:'Sora',sans-serif; font-weight:800; text-transform:uppercase; color:var(--pf-navy);
+  font-size:clamp(2rem,5vw,3.8rem); line-height:1; letter-spacing:-.04em;
+}
+body.home .bg-navy .h2, body.home .bg-navy h3{ color:#fff; }
+body.home .eyebrow{
+  font-family:'Sora',sans-serif; font-size:.8rem; font-weight:800; letter-spacing:.12em;
+  color:var(--pf-navy); background:var(--pf-yellow); padding:7px 14px; border-radius:999px;
+  transform:rotate(-2deg);
+}
+body.home .eyebrow::before{ display:none; }
+body.home .bg-navy .eyebrow{ background:var(--pf-orange); color:#fff; }
+body.home .lead{ color:#4a4d5e; }
+body.home .bg-navy .lead, body.home .bg-navy .text-soft{ color:#cdd2f0; }
+
+/* buttons */
+body.home .btn{
+  font-family:'Sora',sans-serif; font-weight:800; font-size:.85rem; letter-spacing:.05em; text-transform:uppercase;
+  padding:16px 30px;
+}
+body.home .btn-primary{ background:var(--pf-orange); color:#fff; box-shadow:0 6px 0 rgba(255,90,31,.25); }
+body.home .btn-primary:hover{ background:#e84d14; }
+body.home .btn-light{ background:#fff; color:var(--pf-navy); }
+body.home .btn-outline{ border-color:var(--pf-navy); color:var(--pf-navy); }
+
+/* marquee */
+body.home .marquee{ background:var(--pf-orange); border:0; transform:rotate(-1deg); margin:-8px -10px 0; position:relative; z-index:2; }
+body.home .marquee-track span{ color:#fff; font-family:'Sora',sans-serif; font-weight:800; text-transform:uppercase; letter-spacing:.06em; }
+body.home .marquee-track span::before{ color:var(--pf-yellow); }
+
+/* cards: sticker style with hard offset shadow */
+body.home .card, body.home .grid-4 .card{
+  background:#fff; border:2.5px solid var(--pf-navy); border-radius:26px; padding:28px;
+  box-shadow:7px 8px 0 var(--pf-pink); transition:transform .15s ease, box-shadow .15s ease;
+}
+body.home .grid-4 .card:nth-child(2n), body.home .grid-3 .card:nth-child(2n){ box-shadow:7px 8px 0 var(--pf-blue); }
+body.home .grid-4 .card:nth-child(3n), body.home .grid-3 .card:nth-child(3n){ box-shadow:7px 8px 0 var(--pf-yellow); }
+body.home .card:hover, body.home .grid-4 .card:hover{ box-shadow:10px 12px 0 var(--pf-orange); }
+body.home .card .icon{ background:var(--pf-cream); border:2px solid var(--pf-navy); border-radius:50%; }
+body.home .card h3{ font-family:'Sora',sans-serif; font-weight:800; color:var(--pf-navy); text-transform:uppercase; letter-spacing:-.02em; }
+body.home .card p{ color:#4a4d5e; }
+body.home .badge{
+  font-family:'Sora',sans-serif; text-transform:uppercase; font-weight:800; background:var(--pf-cream);
+  color:var(--pf-navy); border:2px solid var(--pf-navy);
+}
+body.home .badge.orange{ background:var(--pf-yellow); color:var(--pf-navy); border-color:var(--pf-navy); }
+
+/* statement band */
+body.home .statement{ background:var(--pf-orange); }
+body.home .statement .stmt-text{ font-family:'Sora',sans-serif; letter-spacing:-.045em; color:#fff; }
+body.home .statement .stmt-text em{ color:var(--pf-navy); }
+body.home .statement .eyebrow{ background:var(--pf-navy); color:#fff; }
+
+/* final CTA */
+body.home .cta-band{ background:var(--pf-navy); border-radius:36px; padding:clamp(40px,6vw,72px) 28px; }
+body.home .cta-band::before{ background:var(--pf-orange); opacity:.35; }
+body.home .cta-band .h2{ color:#fff; }
+
+/* media + pulse */
+body.home .image-carousel, body.home .crunch-poster{ border-radius:30px; }
+body.home .pulse-badge{ background:#fff; border:2.5px solid var(--pf-navy); color:var(--pf-navy); box-shadow:4px 5px 0 var(--pf-pink); }
+body.home .site-footer{ background:var(--pf-navy); }
+html:has(body.home), body.home{ overflow-x:clip; }
+body.home .marquee{ margin:-8px 0 0; }
