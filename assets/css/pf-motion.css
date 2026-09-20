@@ -1,8 +1,8 @@
 /* Motion borrowed from the Puffins prototype: scroll reveal, nav shadow on scroll, bigger hover lifts.
    Reveal uses the individual `translate` property so it never fights existing `transform` animations. */
 @media (prefers-reduced-motion:no-preference){
-  .pf-reveal{ opacity:0; translate:0 25px; transition:opacity .7s ease, translate .7s ease; }
-  .pf-reveal.show{ opacity:1; translate:none; }
+  .pf-js .pf-reveal{ opacity:0; translate:0 25px; transition:opacity .7s ease, translate .7s ease; }
+  .pf-js .pf-reveal.show{ opacity:1; translate:none; }
 }
 body:is(.home,.pf-page) .site-header{ transition:box-shadow .3s ease, border-color .3s ease; }
 body:is(.home,.pf-page) .site-header.pf-scrolled{ box-shadow:0 8px 30px rgba(20,26,92,.10); }

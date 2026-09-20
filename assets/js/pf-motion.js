@@ -6,10 +6,11 @@
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
   }
+  document.documentElement.classList.add("pf-js");
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduce || !("IntersectionObserver" in window)) return;
   var targets = document.querySelectorAll(
-    ".pf-copy, .pf-media, main .grid-2 > div, .editorial-item, .accordion-item, .form-row, .health-pulse, " +
+    ".pf-reveal, .pf-copy, .pf-media, main .grid-2 > div, .editorial-item, .accordion-item, .form-row, .health-pulse, " +
     ".image-carousel, .crunch-poster-wrap, .prose > *, .tabs-nav, .flavor-world"
   );
   var io = new IntersectionObserver(function (entries) {
