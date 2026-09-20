@@ -1,7 +1,7 @@
 /* Homepage header + hero — matches the "THE CRUNCH HAS ENTERED THE CHAT." reference.
    Scoped to body.home so interior pages keep the shared header. */
 body.home{
-  --pf-navy:#141a5c; --pf-orange:#c93a0a; --pf-cream:#f6efe2; --pf-yellow:#ffd21f;
+  --pf-navy:#141a5c; --pf-orange:#c2410c; --pf-cream:#f6efe2; --pf-yellow:#ffd21f;
   --pf-pink:#f7c9d9; --pf-blue:#cfe1f7; --pf-green:#2fb44a;
   background:var(--pf-cream);
 }
@@ -199,3 +199,4 @@ body.home .marquee{ margin:-8px 0 0; }
 
 /* Readability: big display word can stay brighter (3:1 is enough for large text) */
 .pf-title .pf-hot{ color:#e0480f; }
+body.home .cta-band .text-soft{ color:#dfe3fa; }
