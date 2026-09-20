@@ -37,7 +37,7 @@ body.pf-page .btn{
   font-family:'Sora',sans-serif; font-weight:800; font-size:.85rem; letter-spacing:.05em; text-transform:uppercase; padding:16px 30px;
 }
 body.pf-page .btn-primary{ background:var(--pf-orange); color:#fff; box-shadow:0 6px 0 rgba(255,90,31,.25); }
-body.pf-page .btn-primary:hover{ background:#e84d14; }
+body.pf-page .btn-primary:hover{ background:#a82f06; }
 body.pf-page .btn-light{ background:#fff; color:var(--pf-navy); }
 body.pf-page .btn-outline{ border-color:var(--pf-navy); color:var(--pf-navy); }
 body.pf-page .btn-outline:hover{ background:var(--pf-navy); color:#fff; }
