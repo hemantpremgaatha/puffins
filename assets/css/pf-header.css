@@ -1,6 +1,6 @@
 /* Shared PUFFINS header (home + interior pages) */
 body:is(.home,.pf-page){
-  --pf-navy:#141a5c; --pf-orange:#c93a0a; --pf-cream:#f6efe2; --pf-yellow:#ffd21f;
+  --pf-navy:#141a5c; --pf-orange:#c2410c; --pf-cream:#f6efe2; --pf-yellow:#ffd21f;
   --pf-pink:#f7c9d9; --pf-blue:#cfe1f7; --pf-green:#2fb44a;
 }
 body:is(.home,.pf-page) .site-header{

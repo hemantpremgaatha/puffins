@@ -87,3 +87,7 @@ body.pf-page .statement .stmt-text{ font-family:'Sora',sans-serif; letter-spacin
 body.pf-page .statement .stmt-text em{ color:var(--pf-navy); }
 
 body.pf-page.page-story-glass .h1, body.pf-page.page-story-glass .h2{ font-family:'Sora',sans-serif; font-weight:800; text-transform:uppercase; letter-spacing:-.04em; line-height:1; }
+
+/* Readability fixes */
+body.pf-page:not(.page-story-glass) .code{ color:var(--pf-navy); }
+body.pf-page .cta-band .text-soft{ color:#dfe3fa; }
