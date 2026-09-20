@@ -36,3 +36,8 @@ body:is(.home,.pf-page) .pf-cta:hover{ transform:translateY(-2px); background:#0
   body:is(.home,.pf-page) .pf-cta{ padding:12px 20px; }
 }
 @media (min-width:900px){ body:is(.home,.pf-page) .nav-toggle{ display:none; } }
+@media (max-width:899px){
+  body:is(.home,.pf-page) .pf-nav{ position:relative; padding-right:calc(clamp(18px,4vw,56px) + 60px); }
+  body:is(.home,.pf-page) .pf-nav .nav-toggle{ right:clamp(18px,4vw,56px); }
+  body:is(.home,.pf-page) .pf-cta{ margin-left:auto; padding:11px 16px; font-size:.72rem; }
+}
