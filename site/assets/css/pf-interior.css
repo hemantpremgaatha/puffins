@@ -1,19 +1,20 @@
 /* Interior pages — same visual language as the homepage (see home-hero.css). Scoped to body.pf-page. */
-body.pf-page{ background:var(--pf-cream); color:#3b3e52; overflow-x:clip; }
-body.pf-page main > section{ background:var(--pf-cream); }
-body.pf-page main > section.bg-navy{ background:var(--pf-navy); }
+body.pf-page{ overflow-x:clip; }
+body.pf-page:not(.page-story-glass){ background:var(--pf-cream); color:#3b3e52; }
+body.pf-page:not(.page-story-glass) main > section{ background:var(--pf-cream); }
+body.pf-page:not(.page-story-glass) main > section.bg-navy{ background:var(--pf-navy); }
 body.pf-page main > section.hero-photo{ background-color:var(--pf-navy); }
-body.pf-page .bg-cream{ background:var(--pf-cream); }
-body.pf-page .bg-navy{ background:var(--pf-navy); }
+body.pf-page:not(.page-story-glass) .bg-cream{ background:var(--pf-cream); }
+body.pf-page:not(.page-story-glass) .bg-navy{ background:var(--pf-navy); }
 
-body.pf-page .h1, body.pf-page .h2{
+body.pf-page:not(.page-story-glass) .h1, body.pf-page:not(.page-story-glass) .h2{
   font-family:'Sora',sans-serif; font-weight:800; text-transform:uppercase; letter-spacing:-.04em; line-height:1;
   color:var(--pf-navy);
 }
 body.pf-page .h1{ font-size:clamp(2.4rem,7vw,5.6rem); }
 body.pf-page .h2{ font-size:clamp(1.9rem,4.6vw,3.4rem); }
 body.pf-page .bg-navy .h2, body.pf-page .bg-navy h3{ color:#fff; }
-body.pf-page .lead{ color:#4a4d5e; }
+body.pf-page:not(.page-story-glass) .lead{ color:#4a4d5e; }
 body.pf-page .bg-navy .lead, body.pf-page .bg-navy .text-soft{ color:#cdd2f0; }
 
 body.pf-page .eyebrow{
@@ -84,3 +85,5 @@ body.pf-page .site-footer{ background:var(--pf-navy); }
 body.pf-page .statement{ background:var(--pf-orange); }
 body.pf-page .statement .stmt-text{ font-family:'Sora',sans-serif; letter-spacing:-.045em; }
 body.pf-page .statement .stmt-text em{ color:var(--pf-navy); }
+
+body.pf-page.page-story-glass .h1, body.pf-page.page-story-glass .h2{ font-family:'Sora',sans-serif; font-weight:800; text-transform:uppercase; letter-spacing:-.04em; line-height:1; }
