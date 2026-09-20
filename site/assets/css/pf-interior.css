@@ -1,0 +1,86 @@
+/* Interior pages — same visual language as the homepage (see home-hero.css). Scoped to body.pf-page. */
+body.pf-page{ background:var(--pf-cream); color:#3b3e52; overflow-x:clip; }
+body.pf-page main > section{ background:var(--pf-cream); }
+body.pf-page main > section.bg-navy{ background:var(--pf-navy); }
+body.pf-page main > section.hero-photo{ background-color:var(--pf-navy); }
+body.pf-page .bg-cream{ background:var(--pf-cream); }
+body.pf-page .bg-navy{ background:var(--pf-navy); }
+
+body.pf-page .h1, body.pf-page .h2{
+  font-family:'Sora',sans-serif; font-weight:800; text-transform:uppercase; letter-spacing:-.04em; line-height:1;
+  color:var(--pf-navy);
+}
+body.pf-page .h1{ font-size:clamp(2.4rem,7vw,5.6rem); }
+body.pf-page .h2{ font-size:clamp(1.9rem,4.6vw,3.4rem); }
+body.pf-page .bg-navy .h2, body.pf-page .bg-navy h3{ color:#fff; }
+body.pf-page .lead{ color:#4a4d5e; }
+body.pf-page .bg-navy .lead, body.pf-page .bg-navy .text-soft{ color:#cdd2f0; }
+
+body.pf-page .eyebrow{
+  font-family:'Sora',sans-serif; font-size:.8rem; font-weight:800; letter-spacing:.12em;
+  color:var(--pf-navy); background:var(--pf-yellow); padding:7px 14px; border-radius:999px; transform:rotate(-2deg);
+}
+body.pf-page .eyebrow::before{ display:none; }
+body.pf-page .bg-navy .eyebrow{ background:var(--pf-orange); color:#fff; }
+
+/* photo hero */
+body.pf-page .hero-photo::before{ background:linear-gradient(180deg, rgba(20,26,92,.6) 0%, rgba(20,26,92,.92) 100%); }
+body.pf-page .hero-photo .h1{ color:#fff; }
+body.pf-page .hero-photo .eyebrow{ background:var(--pf-yellow); color:var(--pf-navy); }
+body.pf-page .hero-photo .lead{ color:#e3e6fa; }
+body.pf-page .hero-photo .breadcrumb{ font-family:'Sora',sans-serif; font-weight:700; font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; }
+body.pf-page .hero-photo{ border-radius:0 0 44px 44px; }
+
+/* buttons */
+body.pf-page .btn{
+  font-family:'Sora',sans-serif; font-weight:800; font-size:.85rem; letter-spacing:.05em; text-transform:uppercase; padding:16px 30px;
+}
+body.pf-page .btn-primary{ background:var(--pf-orange); color:#fff; box-shadow:0 6px 0 rgba(255,90,31,.25); }
+body.pf-page .btn-primary:hover{ background:#e84d14; }
+body.pf-page .btn-light{ background:#fff; color:var(--pf-navy); }
+body.pf-page .btn-outline{ border-color:var(--pf-navy); color:var(--pf-navy); }
+body.pf-page .btn-outline:hover{ background:var(--pf-navy); color:#fff; }
+
+/* cards */
+body.pf-page:not(.page-story-glass) .card,
+body.pf-page:not(.page-story-glass) .grid-4 .card,
+body.pf-page .product-card{
+  background:#fff; border:2.5px solid var(--pf-navy); border-radius:26px;
+  box-shadow:7px 8px 0 var(--pf-pink); transition:transform .15s ease, box-shadow .15s ease;
+}
+body.pf-page .grid > .card:nth-child(2n), body.pf-page .grid > .product-card:nth-child(2n){ box-shadow:7px 8px 0 var(--pf-blue); }
+body.pf-page .grid > .card:nth-child(3n), body.pf-page .grid > .product-card:nth-child(3n){ box-shadow:7px 8px 0 var(--pf-yellow); }
+body.pf-page:not(.page-story-glass) .card:hover, body.pf-page .product-card:hover{ box-shadow:10px 12px 0 var(--pf-orange); }
+body.pf-page .card .icon{ background:var(--pf-cream); border:2px solid var(--pf-navy); border-radius:50%; }
+body.pf-page .card h3, body.pf-page .product-card h3{
+  font-family:'Sora',sans-serif; font-weight:800; color:var(--pf-navy); text-transform:uppercase; letter-spacing:-.02em;
+}
+body.pf-page .badge{
+  font-family:'Sora',sans-serif; text-transform:uppercase; font-weight:800; background:var(--pf-cream);
+  color:var(--pf-navy); border:2px solid var(--pf-navy);
+}
+body.pf-page .badge.orange{ background:var(--pf-yellow); }
+
+/* forms, accordion, tabs */
+body.pf-page .form-field label{ font-family:'Sora',sans-serif; font-weight:800; text-transform:uppercase; font-size:.75rem; letter-spacing:.06em; color:var(--pf-navy); }
+body.pf-page .form-field input, body.pf-page .form-field select, body.pf-page .form-field textarea{
+  border:2.5px solid var(--pf-navy); border-radius:16px; background:#fff;
+}
+body.pf-page .form-field input:focus, body.pf-page .form-field select:focus, body.pf-page .form-field textarea:focus{
+  outline:none; box-shadow:4px 5px 0 var(--pf-pink);
+}
+body.pf-page .accordion-item{ border-bottom:2px solid rgba(20,26,92,.15); }
+body.pf-page .accordion-q{ font-family:'Sora',sans-serif; font-weight:800; color:var(--pf-navy); }
+body.pf-page .accordion-q .plus{ color:var(--pf-orange); }
+body.pf-page .tabs-nav{ border-bottom:2.5px solid var(--pf-navy); }
+body.pf-page .tabs-nav button{ font-family:'Sora',sans-serif; font-weight:800; text-transform:uppercase; letter-spacing:.04em; }
+body.pf-page .tabs-nav button[aria-selected="true"]{ color:var(--pf-navy); border-color:var(--pf-orange); }
+
+/* cta band + footer */
+body.pf-page .cta-band{ background:var(--pf-navy); border-radius:36px; }
+body.pf-page .cta-band::before{ background:var(--pf-orange); opacity:.35; }
+body.pf-page .cta-band .h2{ color:#fff; }
+body.pf-page .site-footer{ background:var(--pf-navy); }
+body.pf-page .statement{ background:var(--pf-orange); }
+body.pf-page .statement .stmt-text{ font-family:'Sora',sans-serif; letter-spacing:-.045em; }
+body.pf-page .statement .stmt-text em{ color:var(--pf-navy); }
