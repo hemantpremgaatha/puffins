@@ -1,7 +1,7 @@
 /* Homepage header + hero — matches the "THE CRUNCH HAS ENTERED THE CHAT." reference.
    Scoped to body.home so interior pages keep the shared header. */
 body.home{
-  --pf-navy:#141a5c; --pf-orange:#ff5a1f; --pf-cream:#f6efe2; --pf-yellow:#ffd21f;
+  --pf-navy:#141a5c; --pf-orange:#c93a0a; --pf-cream:#f6efe2; --pf-yellow:#ffd21f;
   --pf-pink:#f7c9d9; --pf-blue:#cfe1f7; --pf-green:#2fb44a;
   background:var(--pf-cream);
 }
@@ -108,7 +108,7 @@ body.home .btn{
   padding:16px 30px;
 }
 body.home .btn-primary{ background:var(--pf-orange); color:#fff; box-shadow:0 6px 0 rgba(255,90,31,.25); }
-body.home .btn-primary:hover{ background:#e84d14; }
+body.home .btn-primary:hover{ background:#a82f06; }
 body.home .btn-light{ background:#fff; color:var(--pf-navy); }
 body.home .btn-outline{ border-color:var(--pf-navy); color:var(--pf-navy); }
 
@@ -196,3 +196,6 @@ body.home .marquee{ margin:-8px 0 0; }
 .pf-character:hover{ transform:translateY(-5px); box-shadow:5px 6px 0 var(--pf-yellow); }
 .pf-character b{ display:block; font-family:'Sora',sans-serif; font-weight:800; text-transform:uppercase; letter-spacing:-.02em; color:var(--pf-navy); }
 .pf-character small{ color:#4a4d5e; font-size:.85rem; }
+
+/* Readability: big display word can stay brighter (3:1 is enough for large text) */
+.pf-title .pf-hot{ color:#e0480f; }
