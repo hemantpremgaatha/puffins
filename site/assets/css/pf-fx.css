@@ -1,0 +1,38 @@
+/* Motion layer inspired by the "Prestige" reel: loader with a counting %, buttery scroll,
+   scroll-scrubbed parallax and masked headline reveals. All written from scratch.
+   Everything here is off under prefers-reduced-motion. */
+
+/* ---------- loader (homepage, once per visit) ---------- */
+.pf-loader{
+  position:fixed; inset:0; z-index:9999; background:#f6efe2; color:#141a5c;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:22px;
+  transition:transform .9s cubic-bezier(.77,0,.18,1); will-change:transform;
+}
+.pf-loader.is-done{ transform:translateY(-100%); }
+.pf-loader-mark{ width:140px; height:auto; transform:scale(.35); transform-origin:50% 100%; transition:transform .25s linear; }
+.pf-loader-count{
+  font-family:'Sora',sans-serif; font-weight:800; font-size:clamp(2rem,5vw,3.2rem); letter-spacing:-.04em; line-height:1;
+  font-variant-numeric:tabular-nums;
+}
+.pf-loader-bar{ width:min(280px,60vw); height:4px; border-radius:4px; background:rgba(20,26,92,.12); overflow:hidden; }
+.pf-loader-bar i{ display:block; height:100%; width:0; background:#141a5c; border-radius:4px; }
+html.pf-loading{ overflow:hidden; }
+
+/* ---------- hero headline: masked line reveal ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .pf-js-fx .pf-title > span{ overflow:hidden; padding-bottom:.06em; }
+  .pf-js-fx .pf-title > span > b{ display:block; font-weight:inherit; transform:translateY(110%); transition:transform .9s cubic-bezier(.2,.7,.1,1); }
+  .pf-js-fx.pf-hero-in .pf-title > span > b{ transform:none; }
+  .pf-js-fx.pf-hero-in .pf-title > span:nth-of-type(2) > b{ transition-delay:.08s; }
+  .pf-js-fx.pf-hero-in .pf-title > span:nth-of-type(3) > b{ transition-delay:.16s; }
+  .pf-js-fx.pf-hero-in .pf-title > span:nth-of-type(4) > b{ transition-delay:.24s; }
+  .pf-js-fx.pf-hero-in .pf-title > span:nth-of-type(5) > b{ transition-delay:.32s; }
+
+  /* ---------- section headings: rise out of a mask ---------- */
+  .pf-js-fx .fx-h{ clip-path:inset(0 0 100% 0); translate:0 36px; transition:clip-path .9s cubic-bezier(.2,.7,.1,1), translate .9s cubic-bezier(.2,.7,.1,1); }
+  .pf-js-fx .fx-h.fx-in{ clip-path:inset(-10% -5% -25% -5%); translate:none; }
+
+  /* ---------- scroll-scrubbed parallax images ---------- */
+  .fx-par{ overflow:hidden; }
+  .fx-par > img, .fx-par > .fx-par-inner{ scale:1.14; translate:0 var(--fx-y,0px); will-change:translate; }
+}
